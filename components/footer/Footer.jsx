@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
-    <div>
-      <h1>Footer</h1>
-    </div>
+    <footer className="flex h-10 justify-center items-center shadow-inner">
+      <p>Copyright 2022 RoseDimat</p>
+    </footer>
   );
 };
 

@@ -1,9 +1,8 @@
-import styles from "../styles/Home.module.css";
-import { useSession } from "next-auth/react";
-
 const Home = () => {
-  const { data: session } = useSession();
-  console.log(session);
-  return <div className={styles.container}>{session.user.email}</div>;
+  return (
+    <div>
+      <h1 className="text-3xl font-bold">tailwind bold</h1>
+    </div>
+  );
 };
 export default Home;
