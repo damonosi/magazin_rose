@@ -2,18 +2,12 @@ import { useSession, signIn, signOut, getSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
 import Link from "next/link";
+import { useContext } from "react";
+import { Store } from "./../../utils/Store";
 
 const Header = () => {
-  // console.log(process.env.EMAIL_SERVER_PASSWORD);
-  // const { data: session } = useSession();
-  // const { push, asPath } = useRouter();
-  // const handleSignOut = async () => {
-  //   const data = await signOut({ redirect: false, callbackUrl: "/some" });
-  //   push(data.url);
-  // };
-  // const handleSignIn = () => {
-  //   push(`/auth/signin?callbackUrl=${asPath}`);
-  // };
+  const { state, dispatch } = useContext(Store);
+  const { cart } = state;
   return (
     <header>
       <nav className="flex h-12 items-center px-4 justify-between shadow-md">
@@ -22,7 +16,14 @@ const Header = () => {
         </Link>
         <div>
           <Link href="/cart">
-            <a className="p-2">Cart</a>
+            <a className="p-2">
+              Cart
+              {cart.cartItems.length > 0 && (
+                <span className="ml-1 rounded-full bg-red-600 px-2 text-xs font-bold text-white">
+                  {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                </span>
+              )}
+            </a>
           </Link>
           <Link href="/login">
             <a className="p-2">Login</a>
