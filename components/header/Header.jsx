@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import { Store } from "../../utils/Store";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { Menu } from "@headlessui/react";
+import DropdownLink from "./../DropdownLink";
+import Cookies from "js-cookie";
 
 const Header = () => {
   const { status, data: session } = useSession();
-  const { state } = useContext(Store);
+  const { state, dispatch } = useContext(Store);
   const { cart } = state;
 
   const [cartItemsCount, setCartItemsCount] = useState(0);
@@ -14,6 +16,11 @@ const Header = () => {
     setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
   }, [cart.cartItems]);
 
+  const logoutClickHandler = () => {
+    Cookies.remove("cart");
+    dispatch({ type: "CART_RESET" });
+    signOut({ callbackUrl: "/login" });
+  };
   return (
     <header>
       <nav className="flex h-12 items-center px-4 justify-between shadow-md">
@@ -39,6 +46,27 @@ const Header = () => {
               <Menu.Button className="text-blue-600">
                 {session.user.name}
               </Menu.Button>
+              <Menu.Items className="absolute right-0 w-56 bg-white origin-top-right shadow-lg">
+                <Menu.Item>
+                  <DropdownLink href="/profile" className="dropdown-link">
+                    Profile
+                  </DropdownLink>
+                </Menu.Item>
+                <Menu.Item>
+                  <DropdownLink href="/profile" className="dropdown-link">
+                    Order History
+                  </DropdownLink>
+                </Menu.Item>
+                <Menu.Item>
+                  <a
+                    href="#"
+                    className="dropdown-link"
+                    onClick={logoutClickHandler}
+                  >
+                    Logout
+                  </a>
+                </Menu.Item>
+              </Menu.Items>
             </Menu>
           ) : (
             <Link href="/login">
