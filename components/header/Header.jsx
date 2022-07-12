@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import { Store } from "../../utils/Store";
 import { useSession } from "next-auth/react";
+import { Menu } from "@headlessui/react";
 
 const Header = () => {
   const { status, data: session } = useSession();
@@ -34,7 +35,11 @@ const Header = () => {
           {status === "loading" ? (
             "Loading"
           ) : session?.user ? (
-            session.user.name
+            <Menu as="div" className="relative inline-block">
+              <Menu.Button className="text-blue-600">
+                {session.user.name}
+              </Menu.Button>
+            </Menu>
           ) : (
             <Link href="/login">
               <a className="p-2">Login</a>
