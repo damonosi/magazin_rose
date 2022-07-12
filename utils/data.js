@@ -1,4 +1,20 @@
+import brypt from "bcryptjs";
+
 const data = {
+  users: [
+    {
+      name: "Andrei",
+      email: "dam195@yahoo.com",
+      password: brypt.hashSync("123456"),
+      isAdmin: true,
+    },
+    {
+      name: "Fanel",
+      email: "user@example.com",
+      password: brypt.hashSync("123456"),
+      isAdmin: false,
+    },
+  ],
   products: [
     {
       name: "Miere Poliflora",
