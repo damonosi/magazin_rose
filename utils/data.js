@@ -1,17 +1,17 @@
-import brypt from "bcryptjs";
+import bcrypt from "bcryptjs";
 
 const data = {
   users: [
     {
       name: "Andrei",
       email: "dam195@yahoo.com",
-      password: brypt.hashSync("123456"),
+      password: bcrypt.hashSync("123456"),
       isAdmin: true,
     },
     {
-      name: "Fanel",
+      name: "Jane",
       email: "user@example.com",
-      password: brypt.hashSync("123456"),
+      password: bcrypt.hashSync("123456"),
       isAdmin: false,
     },
   ],

@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
-import { Store } from "./../../utils/Store";
+import { Store } from "../../utils/Store";
+import { useSession } from "next-auth/react";
 
 const Header = () => {
+  const { status, data: session } = useSession();
   const { state } = useContext(Store);
   const { cart } = state;
+
   const [cartItemsCount, setCartItemsCount] = useState(0);
   useEffect(() => {
     setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
@@ -27,31 +30,20 @@ const Header = () => {
               )}
             </a>
           </Link>
-          <Link href="/login">
-            <a className="p-2">Login</a>
-          </Link>
+
+          {status === "loading" ? (
+            "Loading"
+          ) : session?.user ? (
+            session.user.name
+          ) : (
+            <Link href="/login">
+              <a className="p-2">Login</a>
+            </Link>
+          )}
         </div>
       </nav>
     </header>
   );
 };
-// export const getServerSideProps = async (ctx) => {
-//   // Check if the user is authenticated from the server
-//   const session = await getSession(ctx);
-//   if (!session) {
-//     return {
-//       redirect: {
-//         permanent: false,
-//         destination: "/api/auth/signin",
-//       },
-//       props: {},
-//     };
-//   }
-//   return {
-//     props: {
-//       session,
-//     },
-//   };
-// };
 
 export default Header;

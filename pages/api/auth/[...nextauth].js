@@ -1,69 +1,44 @@
-import nodemailer from "nodemailer";
+import bcrypt from "bcryptjs";
 import NextAuth from "next-auth";
-import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
-import EmailProvider from "next-auth/providers/email";
-import MongoClientPromise from "../../../lib/mongodb";
-
-const THIRTY_DAYS = 30 * 24 * 60 * 60;
-const THIRTY_MINUTES = 30 * 60;
+import CredentialsProvider from "next-auth/providers/credentials";
+import User from "../../../models/User";
+import db from "../../../utils/db";
 
 export default NextAuth({
-  pages: {
-    signIn: "/login",
-    verifyRequest: "/verify-request",
-  },
-  secret: process.env.SECRET,
   session: {
     strategy: "jwt",
-    maxAge: THIRTY_DAYS,
-    updateAge: THIRTY_MINUTES,
   },
-  adapter: MongoDBAdapter(MongoClientPromise),
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user?._id) token._id = user._id;
+      if (user?.isAdmin) token.isAdmin = user.isAdmin;
+      return token;
+    },
+    async session({ session, token }) {
+      if (token?._id) session.user._id = token._id;
+      if (token?.isAdmin) session.user.isAdmin = token.isAdmin;
+      return session;
+    },
+  },
   providers: [
-    EmailProvider({
-      server: {
-        host: process.env.EMAIL_SERVER_HOST,
-        port: process.env.EMAIL_SERVER_PORT,
-        auth: {
-          user: process.env.EMAIL_SERVER_USER,
-          pass: process.env.EMAIL_SERVER_PASSWORD,
-        },
-      },
-      from: process.env.EMAIL_FROM,
-      async sendVerificationRequest({
-        identifier: email,
-        url,
-        provider: { server, from },
-      }) {
-        const { host } = new URL(url);
-        const transport = nodemailer.createTransport(server);
-        await transport.sendMail({
-          to: email,
-          from,
-          subject: `Sign in to ${host}`,
-          text: text({ url, host }),
-          html: html({ url, host, email }),
+    CredentialsProvider({
+      async authorize(credentials) {
+        await db.connect();
+        const user = await User.findOne({
+          email: credentials.email,
         });
+        await db.disconnect();
+        if (user && bcrypt.compareSync(credentials.password, user.password)) {
+          return {
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            image: "f",
+            isAdmin: user.isAdmin,
+          };
+        }
+        throw new Error("Invalid email or password");
       },
     }),
   ],
 });
-
-function html({ url, host, email }) {
-  const escapedEmail = `${email.replace(/\./g, "&#8203;.")}`;
-  const escapedHost = `${host.replace(/\./g, "&#8203;.")}`;
-  // Your email template here
-  return `
-      <body>
-        <h1>Your magic link! 🪄</h1>
-        <h3>Your email is ${escapedEmail}</h3>
-        <p>
-          <a href="${url}">Sign in to ${escapedHost}</a>
-      </body>
-  `;
-}
-
-// Fallback for non-HTML email clients
-function text({ url, host }) {
-  return `Sign in to ${host}\n${url}\n\n`;
-}
