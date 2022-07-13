@@ -70,3 +70,4 @@ export default function PaymentScreen() {
     </div>
   );
 }
+PaymentScreen.auth = true;
