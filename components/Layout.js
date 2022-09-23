@@ -1,4 +1,4 @@
-import Header from "./header/Header";
+import Header from "./header";
 import Footer from "./footer/Footer";
 import Head from "next/head";
 import { ToastContainer } from "react-toastify";
