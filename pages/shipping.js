@@ -128,4 +128,4 @@ export default function ShippingScreen() {
   );
 }
 
-ShippingScreen.auth = true;
+ShippingScreen.Auth = true;

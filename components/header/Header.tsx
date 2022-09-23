@@ -1,9 +1,11 @@
+import React from "react";
+
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import { Store } from "../../utils/Store";
 import { signOut, useSession } from "next-auth/react";
 import { Menu } from "@headlessui/react";
-import DropdownLink from "./../DropdownLink";
+import DropdownLink from "../DropdownLink";
 import Cookies from "js-cookie";
 
 const Header = () => {
@@ -19,10 +21,10 @@ const Header = () => {
   const logoutClickHandler = () => {
     Cookies.remove("cart");
     dispatch({ type: "CART_RESET" });
-    signOut({ callbackUrl: "/login" });
+    signOut({ callbackUrl: "/auth/login" });
   };
   return (
-    <header>
+    <header className="bg-black px-4">
       <nav className="flex h-12 items-center px-4 justify-between shadow-md">
         <Link href="/">
           <a className="text-lg font-bold">RoseDimat</a>
@@ -38,12 +40,15 @@ const Header = () => {
               )}
             </a>
           </Link>
+          <Link href="/produse">
+            <a className="p-2 text-yellow-600">Produse</a>
+          </Link>
 
           {status === "loading" ? (
             "Loading"
           ) : session?.user ? (
             <Menu as="div" className="relative inline-block">
-              <Menu.Button className="text-blue-600">
+              <Menu.Button className="text-yellow-600">
                 {session.user.name}
               </Menu.Button>
               <Menu.Items className="absolute right-0 w-56 bg-white origin-top-right shadow-lg">
@@ -69,7 +74,7 @@ const Header = () => {
               </Menu.Items>
             </Menu>
           ) : (
-            <Link href="/login">
+            <Link href="/auth/login">
               <a className="p-2">Login</a>
             </Link>
           )}

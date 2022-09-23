@@ -14,7 +14,7 @@ const Layout = ({ title, children }) => {
       <ToastContainer position="bottom-center" limit={1} />
       <div className="flex min-h-screen flex-col justify-between">
         <Header />
-        <main className="container m-auto mt-4 px-4">{children}</main>
+        <main className="container m-auto ">{children}</main>
 
         <Footer />
       </div>

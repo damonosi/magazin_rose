@@ -7,6 +7,7 @@ export default function Unauthorized() {
   return (
     <div>
       <h1 className="text-xl"> Access Denied </h1>
+      <button onClick={() => router.push("/auth/login")}>Logare</button>
       {message && <div className="mb-4 text-red-500"> {message} </div>}
     </div>
   );

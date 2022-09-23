@@ -1,12 +1,13 @@
+import React from "react";
 import { useContext } from "react";
-import ProductItem from "../components/ProductItem.js";
-import Product from "../models/Product.js";
-import db from "../utils/db.js";
-import { Store } from "../utils/Store.js";
+import ProductItem from "../../components/ProductItem.js";
+import Product from "../../models/Product.js";
+import db from "../../utils/db.js";
+import { Store } from "../../utils/Store.js";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const Home = ({ products }) => {
+const ToateProdusele = ({ products }) => {
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
 
@@ -33,15 +34,14 @@ const Home = ({ products }) => {
     </div>
   );
 };
-
 export async function getServerSideProps() {
   await db.connect();
   const products = await Product.find().lean();
+  db.disconnect();
   return {
     props: {
       products: products.map(db.convertDocToObj),
     },
   };
 }
-
-export default Home;
+export default ToateProdusele;

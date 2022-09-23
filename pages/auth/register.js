@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { getError } from "../utils/error";
+import { getError } from "../../utils/error";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import axios from "axios";
@@ -126,7 +126,9 @@ const RegisterScreen = () => {
         </div>
         <div className="mb-4 ">
           Don&apos;t have an account? &nbsp;
-          <Link href={`/register?redirect=${redirect || "/"}`}>Register</Link>
+          <Link href={`auth/register?redirect=${redirect || "/"}`}>
+            Register
+          </Link>
         </div>
       </form>
     </div>
