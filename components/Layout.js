@@ -12,9 +12,12 @@ const Layout = ({ title, children }) => {
         <meta name="description" content="Ecommerce Website" />
       </Head>
       <ToastContainer position="bottom-center" limit={1} />
-      <div className="flex min-h-screen flex-col justify-between">
-        <Header />
-        <main className="container m-auto ">{children}</main>
+
+      <div className=" flex min-h-screen flex-col justify-between  ">
+        <div className="container m-auto mt-0">
+          <Header />
+        </div>
+        <main className="container m-auto overflow-x-hidden">{children}</main>
 
         <Footer />
       </div>

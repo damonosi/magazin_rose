@@ -24,10 +24,10 @@ const Header = () => {
     signOut({ callbackUrl: "/auth/login" });
   };
   return (
-    <header className="bg-black px-4">
+    <header className=" bg-fundal px-4 border-roz border-b-8">
       <nav className="flex h-12 items-center px-4 justify-between shadow-md">
         <Link href="/">
-          <a className="text-lg font-bold">RoseDimat</a>
+          <a className="text-lg text-roz font-bold">RoseDimat</a>
         </Link>
         <div>
           <Link href="/cart">
@@ -41,7 +41,7 @@ const Header = () => {
             </a>
           </Link>
           <Link href="/produse">
-            <a className="p-2 text-yellow-600">Produse</a>
+            <a className="p-2 text-roz">Produse</a>
           </Link>
 
           {status === "loading" ? (
