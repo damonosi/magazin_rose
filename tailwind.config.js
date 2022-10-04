@@ -6,7 +6,13 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: { fundal: "#CFD6EA", text: "#2A2D34", roz: "#FF6392" },
+      colors: {
+        fundal: "#080808",
+        text: "#FFFF80",
+        roz: "#FF6392",
+        galben: "#f9ba04",
+        textTrandafiri: "#080808",
+      },
     },
   },
   plugins: [],

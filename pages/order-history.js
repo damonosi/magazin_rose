@@ -88,5 +88,5 @@ function OrderHistoryScreen() {
   );
 }
 
-OrderHistoryScreen.auth = true;
+OrderHistoryScreen.Auth = true;
 export default OrderHistoryScreen;

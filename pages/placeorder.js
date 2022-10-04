@@ -163,4 +163,4 @@ export default function PlaceOrderScreen() {
   );
 }
 
-PlaceOrderScreen.auth = true;
+PlaceOrderScreen.Auth = true;

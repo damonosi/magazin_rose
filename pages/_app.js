@@ -5,6 +5,7 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 import "../styles/globals.css";
 import { StoreProvider } from "../utils/Store";
+import Spinner from "./../components/spinner/Spinner";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
@@ -12,7 +13,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       <StoreProvider>
         <PayPalScriptProvider deferLoading={true}>
           <Layout>
-            {Component.auth ? (
+            {Component.Auth ? (
               <Auth>
                 <Component {...pageProps} />
               </Auth>
@@ -34,8 +35,9 @@ function Auth({ children }) {
       console.log("Nu Esti logat");
     },
   });
+  console.log(status);
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
   return children;
 }
