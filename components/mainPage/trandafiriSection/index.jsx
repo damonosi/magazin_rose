@@ -10,7 +10,7 @@ import InViewWrapper from "../../componente-animate/InViewWrapper.tsx";
 
 const TrandafiriSection = () => {
   return (
-    <section className="flex z-20 flex-row relative bg-roz text-fundal p-20 min-h-screen w-full tracking-widest">
+    <section className="flex z-20 flex-row relative bg-roz text-fundal p-20 min-h-screen w-full tracking-widest overflow-hidden">
       <InViewWrapper
         inView={{ y: 0, opacity: 1 }}
         notInView={{ y: 50, opacity: 0 }}
@@ -111,8 +111,8 @@ const TrandafiriSection = () => {
         <div className="flex    w-full lg:w-1/2 h-1/3  items-center p-8">
           {" "}
           <InViewWrapper
-            inView={{ x: 0, opacity: 1 }}
-            notInView={{ x: 200, opacity: 0 }}
+            inView={{ x: -200, opacity: 1 }}
+            notInView={{ x: 0, opacity: 0 }}
             tranzitie={{ duration: 2 }}
             clasa={"  "}
           >
@@ -122,8 +122,8 @@ const TrandafiriSection = () => {
         <div className="flex    w-full lg:w-1/2 h-1/3  items-center p-8">
           {" "}
           <InViewWrapper
-            inView={{ x: 0, opacity: 1 }}
-            notInView={{ x: 200, opacity: 0 }}
+            inView={{ x: -100, opacity: 1 }}
+            notInView={{ x: 0, opacity: 0 }}
             tranzitie={{ duration: 2 }}
             clasa={" "}
           >
@@ -133,9 +133,9 @@ const TrandafiriSection = () => {
         <div className="flex    w-full lg:w-1/2 h-1/3  items-center pt-16">
           {" "}
           <InViewWrapper
-            inView={{ opacity: 1 }}
-            notInView={{ opacity: 0 }}
-            tranzitie={{ duration: 3 }}
+            inView={{ opacity: 1, y: 0 }}
+            notInView={{ opacity: 0, y: 100 }}
+            tranzitie={{ duration: 2 }}
             clasa={""}
           >
             <Image src={PetaleLemn} alt="trandafiri-tava" />{" "}
