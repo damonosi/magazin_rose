@@ -53,7 +53,7 @@ const HeroSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: animationDuration }}
                 onViewportEnter={() => setIsInView(true)}
-                className=" inline-block mt-28 hidden xl:block"
+                className=" inline-block mt-28 w-1/4 hidden xl:block"
               >
                 <Image alt="pozaTradafir" src={TrandafirImg} />
               </motion.div>
@@ -75,7 +75,7 @@ const HeroSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: animationDuration }}
                 onViewportEnter={() => setIsInView(true)}
-                className="inline-block mt-24 md:mt-0 p-8 md:p-0"
+                className="inline-block mt-24 w-1/4 md:mt-0 p-8 md:p-0"
               >
                 <Image alt="albine" src={AlbinaImg} />
               </motion.div>
@@ -97,7 +97,7 @@ const HeroSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: animationDuration }}
                 onViewportEnter={() => setIsInView(true)}
-                className="inline-block mt-24 md:mt-0 p-8 md:p-0"
+                className="inline-block mt-24 w-1/4 md:mt-0 p-8 md:p-0"
               >
                 <Image alt="ulei-damasc" src={UleiImg} />
               </motion.div>
@@ -119,13 +119,26 @@ const HeroSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: animationDuration }}
                 onViewportEnter={() => setIsInView(true)}
-                className="inline-block mt-28 hidden lg:block"
+                className="inline-block mt-28 w-1/4 hidden lg:block"
               >
                 <Image alt="pozaTradafir" src={MiereImg} />
               </motion.div>
             </div>
           </div>
         </div>
+      </div>
+      <div className="devider-hero-trandafiri">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            className="shape-fill-trandafiri"
+          ></path>
+        </svg>
       </div>
     </section>
   );

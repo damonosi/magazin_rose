@@ -2,7 +2,14 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-const InViewWrapper = ({ children, inView, notInView, clasa, tranzitie }) => {
+const InViewWrapper = ({
+  children,
+  inView,
+  notInView,
+  clasa,
+  tranzitie,
+  delay,
+}) => {
   const [isInView, setIsInView] = useState(false);
 
   return (
@@ -11,7 +18,11 @@ const InViewWrapper = ({ children, inView, notInView, clasa, tranzitie }) => {
       // animated si not animated le adaugam in props ca
       animate={isInView ? inView : notInView}
       transition={tranzitie}
-      onViewportEnter={() => setIsInView(true)}
+      onViewportEnter={() => {
+        setTimeout(() => {
+          setIsInView(true);
+        }, delay);
+      }}
       onViewportLeave={() => {
         setIsInView(false);
       }}

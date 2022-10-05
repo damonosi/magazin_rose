@@ -44,3 +44,43 @@ textarea {
 .alert-success {
   @apply my-3 rounded-lg bg-green-100 p-3 text-green-700;
 }
+
+.devider-trandafiri-albine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.devider-trandafiri-albine svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 114px;
+}
+
+.devider-trandafiri-albine .shape-fill-albine {
+  @apply fill-galben;
+}
+.devider-hero-trandafiri {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.devider-hero-trandafiri svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 114px;
+}
+.devider-hero-trandafiri .shape-fill-trandafiri {
+  @apply fill-roz;
+}

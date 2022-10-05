@@ -5,7 +5,7 @@ import InViewWrapper from "../../componente-animate/InViewWrapper.tsx";
 
 const AlbineSection = () => {
   return (
-    <motion.section className="z-30  relative">
+    <motion.section className="z-10  relative">
       <div className="bg-galben text-roz py-20 tracking-widest">
         <div className="container mx-auto flex h-screen">
           <InViewWrapper

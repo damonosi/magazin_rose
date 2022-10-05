@@ -10,7 +10,7 @@ import InViewWrapper from "../../componente-animate/InViewWrapper.tsx";
 
 const TrandafiriSection = () => {
   return (
-    <section className="flex z-20 flex-row relative bg-roz text-fundal p-20 min-h-screen w-full tracking-widest overflow-hidden">
+    <section className="flex z-20 flex-row relative bg-roz text-fundal p-20 min-h-screen w-full tracking-widest ">
       <InViewWrapper
         inView={{ y: 0, opacity: 1 }}
         notInView={{ y: 50, opacity: 0 }}
@@ -31,7 +31,7 @@ const TrandafiriSection = () => {
           inView={{ opacity: 1 }}
           notInView={{ opacity: 0 }}
           tranzitie={{ duration: 2 }}
-          clasa={"flex  mt-28 ml-12"}
+          clasa={"flex  mt-28 mb-28 ml-14"}
         >
           {" "}
           <p>Să nu uităm de răsfățul simțurilor!</p>
@@ -108,39 +108,55 @@ const TrandafiriSection = () => {
         </InViewWrapper>
       </div>
       <div className="flex w-1/3 flex-col items-center relative justify-center  h-auto">
-        <div className="flex    w-full lg:w-1/2 h-1/3  items-center p-8">
+        <div className="flex  mb-28 mt-28  w-full  h-1/3  items-center p-8">
           {" "}
           <InViewWrapper
             inView={{ x: -200, opacity: 1 }}
             notInView={{ x: 0, opacity: 0 }}
             tranzitie={{ duration: 2 }}
+            delay={500}
             clasa={"  "}
           >
             <Image src={Ofloare} alt="trandafiri-tava" />{" "}
           </InViewWrapper>
         </div>
-        <div className="flex    w-full lg:w-1/2 h-1/3  items-center p-8">
+        <div className="flex  mb-28 mt-28  w-full lg:w-1/2 h-1/3  items-center p-8">
           {" "}
           <InViewWrapper
             inView={{ x: -100, opacity: 1 }}
             notInView={{ x: 0, opacity: 0 }}
             tranzitie={{ duration: 2 }}
             clasa={" "}
+            delay={500}
           >
             <Image src={UleiProfil} alt="trandafiri-tava" />{" "}
           </InViewWrapper>
         </div>
-        <div className="flex    w-full lg:w-1/2 h-1/3  items-center pt-16">
+        <div className="flex  mb-28 mt-28  w-full lg:w-1/2 h-1/3  items-center pt-16">
           {" "}
           <InViewWrapper
             inView={{ opacity: 1, y: 0 }}
             notInView={{ opacity: 0, y: 100 }}
             tranzitie={{ duration: 2 }}
             clasa={""}
+            delay={500}
           >
             <Image src={PetaleLemn} alt="trandafiri-tava" />{" "}
           </InViewWrapper>
         </div>
+      </div>
+      <div className="devider-trandafiri-albine">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            className="shape-fill-albine"
+          ></path>
+        </svg>
       </div>
     </section>
   );
