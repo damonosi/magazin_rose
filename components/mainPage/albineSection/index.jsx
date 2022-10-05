@@ -1,24 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { GiHoneypot } from "react-icons/gi";
+import InViewWrapper from "../../componente-animate/InViewWrapper.tsx";
 
 const AlbineSection = () => {
-  const [isInView, setIsInView] = useState(false);
   return (
-    <motion.section
-      initial={false}
-      transition={{ duration: 3 }}
-      onViewportEnter={() => setIsInView(true)}
-      className="z-30  relative"
-    >
+    <motion.section className="z-30  relative">
       <div className="bg-galben text-roz py-20 tracking-widest">
         <div className="container mx-auto flex h-screen">
-          <motion.div
-            onViewportLeave={() => {
-              console.log("left");
-              setIsInView(false);
-            }}
-            className="flex flex-col w-full lg:w-1/3 justsify-center items-start p-8 "
+          <InViewWrapper
+            inView={{ opacity: 1 }}
+            notInView={{ opacity: 0 }}
+            tranzitie={{ duration: 2 }}
+            clasa={
+              "flex flex-col w-full lg:w-1/3 justsify-center items-start p-8 "
+            }
           >
             {" "}
             <div
@@ -28,7 +24,7 @@ const AlbineSection = () => {
               <h1>Albine </h1>
               <GiHoneypot className="ml-2" />
             </div>
-          </motion.div>
+          </InViewWrapper>
         </div>
       </div>
     </motion.section>
