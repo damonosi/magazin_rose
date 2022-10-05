@@ -1,8 +1,7 @@
 import React from "react";
 
 import Image from "next/image";
-import TrandafirTava from "../../../public/images/trandafiri-tava.png";
-import BackTrandafiriText from "../../../public/images/text-rose-back-cu.png";
+
 import Ofloare from "../../../public/images/tradafir-floare.png";
 import UleiProfil from "../../../public/images/uleiProfil.png";
 import PetaleLemn from "../../../public/images/petaleLemn.png";
@@ -11,7 +10,7 @@ import InViewWrapper from "../../componente-animate/InViewWrapper.tsx";
 
 const TrandafiriSection = () => {
   return (
-    <section className="flex z-20 flex-row relative bg-roz text-fundal p-20 min-h-screen tracking-widest">
+    <section className="flex z-20 flex-row relative bg-roz text-fundal p-20 min-h-screen w-full tracking-widest">
       <InViewWrapper
         inView={{ y: 0, opacity: 1 }}
         notInView={{ y: 50, opacity: 0 }}
@@ -25,7 +24,7 @@ const TrandafiriSection = () => {
       </InViewWrapper>
 
       <div
-        className="container  pt-6 pl-36  items-center justify-center  h-fit w-1/2 mt-28"
+        className="container  pt-6 pl-36  items-center justify-center  h-fit w-2/3 mt-28"
         id="content-trandafiri"
       >
         <InViewWrapper
@@ -41,7 +40,7 @@ const TrandafiriSection = () => {
           inView={{ opacity: 1 }}
           notInView={{ opacity: 0 }}
           tranzitie={{ duration: 2 }}
-          clasa={"flex  mt-36 ml-20"}
+          clasa={"flex w-3/4  mt-36 ml-20"}
         >
           <p>
             Trandafirii conțin vitamina C, un puternic antioxidant ce ajută în
@@ -53,7 +52,7 @@ const TrandafiriSection = () => {
           inView={{ opacity: 1 }}
           notInView={{ opacity: 0 }}
           tranzitie={{ duration: 2 }}
-          clasa={"flex  mt-36 ml-28"}
+          clasa={"flex w-3/4  mt-36 ml-28"}
         >
           {" "}
           <p>
@@ -67,7 +66,7 @@ const TrandafiriSection = () => {
           inView={{ opacity: 1 }}
           notInView={{ opacity: 0 }}
           tranzitie={{ duration: 2 }}
-          clasa={"flex  mt-36 ml-36"}
+          clasa={"flex w-3/4  mt-36 ml-36"}
         >
           {" "}
           <p>
@@ -82,7 +81,7 @@ const TrandafiriSection = () => {
           inView={{ opacity: 1 }}
           notInView={{ opacity: 0 }}
           tranzitie={{ duration: 2 }}
-          clasa={"flex  mt-36 ml-44"}
+          clasa={"flex w-3/4  mt-36 ml-44"}
         >
           {" "}
           <p>
@@ -97,7 +96,7 @@ const TrandafiriSection = () => {
           inView={{ opacity: 1 }}
           notInView={{ opacity: 0 }}
           tranzitie={{ duration: 2 }}
-          clasa={"flex  mt-36 ml-52"}
+          clasa={"flex w-3/4  mt-36 ml-52"}
         >
           {" "}
           <p>
@@ -108,37 +107,40 @@ const TrandafiriSection = () => {
           </p>
         </InViewWrapper>
       </div>
-      <div className="flex flex-col items-center justify-center w-1/2 h-auto">
-        <InViewWrapper
-          inView={{ x: 0, opacity: 1 }}
-          notInView={{ x: 200, opacity: 0 }}
-          tranzitie={{ duration: 2 }}
-          clasa={
-            " top-0 right-0 flex flex-col w-full lg:w-1/2 h-1/2  items-center p-8 "
-          }
-        >
-          <Image src={Ofloare} alt="trandafiri-tava" />{" "}
-        </InViewWrapper>
-        <InViewWrapper
-          inView={{ x: 0, opacity: 1 }}
-          notInView={{ x: 200, opacity: 0 }}
-          tranzitie={{ duration: 2 }}
-          clasa={
-            " top-100 right-0 flex flex-col w-full lg:w-1/2 h-1/2  items-center p-8 "
-          }
-        >
-          <Image src={UleiProfil} alt="trandafiri-tava" />{" "}
-        </InViewWrapper>
-        <InViewWrapper
-          inView={{ opacity: 1 }}
-          notInView={{ opacity: 0 }}
-          tranzitie={{ duration: 1 }}
-          clasa={
-            " top-100 right-0 flex flex-col w-full lg:w-1/2 h-1/2  items-center p-8 "
-          }
-        >
-          <Image src={PetaleLemn} alt="trandafiri-tava" />{" "}
-        </InViewWrapper>
+      <div className="flex w-1/3 flex-col items-center relative justify-center  h-auto">
+        <div className="flex    w-full lg:w-1/2 h-1/3  items-center p-8">
+          {" "}
+          <InViewWrapper
+            inView={{ x: 0, opacity: 1 }}
+            notInView={{ x: 200, opacity: 0 }}
+            tranzitie={{ duration: 2 }}
+            clasa={"  "}
+          >
+            <Image src={Ofloare} alt="trandafiri-tava" />{" "}
+          </InViewWrapper>
+        </div>
+        <div className="flex    w-full lg:w-1/2 h-1/3  items-center p-8">
+          {" "}
+          <InViewWrapper
+            inView={{ x: 0, opacity: 1 }}
+            notInView={{ x: 200, opacity: 0 }}
+            tranzitie={{ duration: 2 }}
+            clasa={" "}
+          >
+            <Image src={UleiProfil} alt="trandafiri-tava" />{" "}
+          </InViewWrapper>
+        </div>
+        <div className="flex    w-full lg:w-1/2 h-1/3  items-center pt-16">
+          {" "}
+          <InViewWrapper
+            inView={{ opacity: 1 }}
+            notInView={{ opacity: 0 }}
+            tranzitie={{ duration: 3 }}
+            clasa={""}
+          >
+            <Image src={PetaleLemn} alt="trandafiri-tava" />{" "}
+          </InViewWrapper>
+        </div>
       </div>
     </section>
   );
