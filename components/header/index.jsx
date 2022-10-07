@@ -47,7 +47,7 @@ const Header = () => {
           {status === "loading" ? (
             "Loading"
           ) : session?.user ? (
-            <Menu as="div" className="relative inline-block">
+            <Menu as="div" className="z-40 relative inline-block">
               <Menu.Button className="text-yellow-600">
                 {session.user.name}
               </Menu.Button>
@@ -55,6 +55,11 @@ const Header = () => {
                 <Menu.Item>
                   <DropdownLink href="/profile" className="dropdown-link">
                     Profile
+                  </DropdownLink>
+                </Menu.Item>
+                <Menu.Item>
+                  <DropdownLink href="/dashboard" className="dropdown-link">
+                    Dashboard
                   </DropdownLink>
                 </Menu.Item>
                 <Menu.Item>

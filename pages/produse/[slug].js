@@ -30,39 +30,44 @@ export default function ProductScreen(props) {
     router.push("/cart");
   };
   return (
-    <>
-      <div className="py-2">
-        <Link href="/produse">back to products</Link>
+    <div className="flex w-full h-auto min-h-screen p-16 relative justify-center">
+      <div className="p-2 absolute top-0 left-0 justify-center">
+        <Link href="/produse">Innapoi la Produse</Link>
       </div>
-      <div className="grid md:grid-cols-4 md:gap-3">
-        <div className="md:col-span-2">
-          <Image
-            src={product.image}
-            alt={product.name}
-            width={640}
-            height={640}
-            layout="responsive"
-          ></Image>
+      <div className="grid grid-cols-3 gap-3 items-center">
+        <div className="flex w-full h-full max-h-96 align-center justify-center">
+          <div className="md:col-span-2 relative w-2/6 h-1/1">
+            <Image src={product.image} alt={product.name} layout="fill" />
+          </div>
         </div>
         <div>
-          <ul>
+          <ul className="flex flex-col gap-3 p-6 pr-16">
             <li>
               <h1 className="text-lg">{product.name}</h1>
             </li>
-            <li>Category : {product.category}</li>
+            <li>Categorie : {product.category}</li>
             <li>
-              {product.rating}of {product.numReviews} reviews
+              {product.rating} din {product.numReviews} revieuri
             </li>
             <li>
-              <h1 className="text-lg">Description : {product.description}</h1>
+              <h1 className="text-lg">Descriere : {product.description}</h1>
             </li>
           </ul>
         </div>
-        <div>
+        <div className="p-16">
           <div className="card p-5">
             <div className="mb-2 flex justify-between">
-              <div>Price</div>
-              <div>{product.price}RON</div>
+              <div>Pret</div>
+              <div>{product.price} RON</div>
+            </div>
+            <div className="mb-2 flex justify-between">
+              <div>Cantitate</div>
+              <div>
+                {product.category === "produse apicole"
+                  ? product.cantitate / 1000
+                  : product.cantitate}
+                {product.category === "produse apicole" ? " Kg" : " ml"}
+              </div>
             </div>
             <div className="mb-2 flex justify-between">
               <div>Status</div>
@@ -72,12 +77,12 @@ export default function ProductScreen(props) {
               className="primary-button w-full"
               onClick={addToCartHandler}
             >
-              Add to cart
+              Adauga in cart
             </button>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

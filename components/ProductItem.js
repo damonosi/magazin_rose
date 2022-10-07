@@ -1,19 +1,26 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const ProductItem = ({ product, addToCartHandler }) => {
   return (
-    <div className="card">
-      <Link href={`/produse/${product.slug}`}>
-        <a>
-          <img
-            src={product.image}
-            alt={product.name}
-            className="rounded shadow"
-          />
-        </a>
-      </Link>
+    <div className=" p-16 flex flex-col justify-center items-center">
+      <div className="container flex justify-center items-center  w-full max-w-xs p-16  h-32 relative">
+        <Link href={`/produse/${product.slug}`}>
+          <a>
+            <div className="flex w-28 h-40 relative">
+              <Image
+                src={product.image}
+                alt={product.name}
+                className="rounded shadow"
+                layout="fill"
+              />
+            </div>
+          </a>
+        </Link>
+      </div>
+
       <div className="flex flex-col items-center justify-center p-5">
         <Link href={`/produse/${product.slug}`}>
           <a>

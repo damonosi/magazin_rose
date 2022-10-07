@@ -31,7 +31,7 @@ const TrandafiriSection = () => {
           inView={{ opacity: 1 }}
           notInView={{ opacity: 0 }}
           tranzitie={{ duration: 2 }}
-          clasa={"flex  mt-28 mb-28 ml-14"}
+          clasa={"flex  mt-28 mb-28 "}
         >
           {" "}
           <p>Să nu uităm de răsfățul simțurilor!</p>
@@ -40,7 +40,7 @@ const TrandafiriSection = () => {
           inView={{ opacity: 1 }}
           notInView={{ opacity: 0 }}
           tranzitie={{ duration: 2 }}
-          clasa={"flex w-3/4  mt-36 ml-20"}
+          clasa={"flex w-3/4  mt-36 ml-10"}
         >
           <p>
             Trandafirii conțin vitamina C, un puternic antioxidant ce ajută în
@@ -52,7 +52,7 @@ const TrandafiriSection = () => {
           inView={{ opacity: 1 }}
           notInView={{ opacity: 0 }}
           tranzitie={{ duration: 2 }}
-          clasa={"flex w-3/4  mt-36 ml-28"}
+          clasa={"flex w-3/4  mt-36 ml-16"}
         >
           {" "}
           <p>
@@ -66,7 +66,7 @@ const TrandafiriSection = () => {
           inView={{ opacity: 1 }}
           notInView={{ opacity: 0 }}
           tranzitie={{ duration: 2 }}
-          clasa={"flex w-3/4  mt-36 ml-36"}
+          clasa={"flex w-3/4  mt-36 ml-24"}
         >
           {" "}
           <p>
@@ -81,7 +81,7 @@ const TrandafiriSection = () => {
           inView={{ opacity: 1 }}
           notInView={{ opacity: 0 }}
           tranzitie={{ duration: 2 }}
-          clasa={"flex w-3/4  mt-36 ml-44"}
+          clasa={"flex w-3/4  mt-36 ml-32"}
         >
           {" "}
           <p>
@@ -96,7 +96,7 @@ const TrandafiriSection = () => {
           inView={{ opacity: 1 }}
           notInView={{ opacity: 0 }}
           tranzitie={{ duration: 2 }}
-          clasa={"flex w-3/4  mt-36 ml-52"}
+          clasa={"flex w-3/4  mt-36 ml-40"}
         >
           {" "}
           <p>
