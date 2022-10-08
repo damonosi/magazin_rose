@@ -11,7 +11,7 @@ body {
 }
 
 a {
-  @apply text-roz hover:text-fundal;
+  @apply text-fundal;
 }
 
 * {
