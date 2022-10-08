@@ -4,10 +4,16 @@ import { MdOutlineInventory } from "react-icons/md";
 import { GiMailbox } from "react-icons/gi";
 import { MdProductionQuantityLimits } from "react-icons/md";
 import { BiUser } from "react-icons/bi";
+import { GrFormAdd } from "react-icons/gr";
 import { RiLogoutCircleRLine } from "react-icons/ri";
+import { AiOutlineHome } from "react-icons/ai";
 import Link from "next/link";
 import { Menu } from "@headlessui/react";
 import DropdownLink from "../../DropdownLink";
+import useSWR from "swr";
+import Spinner from "../../spinner/Spinner";
+
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const AsideMenu = () => {
   const handleLogOut = (e) => {
@@ -15,88 +21,115 @@ const AsideMenu = () => {
 
     signOut({ callbackUrl: "/auth/login" });
   };
-  return (
-    <div>
-      <aside className="w-64 " aria-label="Sidebar">
-        <div className="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800 absolute top-0 bottom-0">
-          <ul className="space-y-2 relative">
-            <li>
-              <Link href="/dashboard/inventar">
-                <a className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                  <MdOutlineInventory />
+  const { data, error } = useSWR("/api/dashboard/comenzi/nr-comenzi", fetcher);
+  if (!data)
+    return (
+      <div>
+        <Spinner />
+      </div>
+    );
+  if (error) return "no data....";
 
-                  <span className="ml-3">Inventar</span>
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/dashboard/comenzi">
-                <a className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                  <GiMailbox />
-                  <span className="flex-1 ml-3 whitespace-nowrap">Comenzi</span>
-                  <span className="inline-flex justify-center items-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">
-                    5
+  return (
+    <aside className="h-fit w-64 " aria-label="Sidebar">
+      <div className=" py-4 px-3 bg-gray-50 rounded h-fit ">
+        <ul className="space-y-4 relative">
+          <li>
+            <Link href="/dashboard/comenzi">
+              <a>
+                <div className="flex flex-row justify-between align-center pt-6 pr-4 text-left w-full relative">
+                  <div className="flex flex-row justify-between align-center items-center h-auto w-full">
+                    <span className="flex-1  whitespace-nowrap">Comenzi</span>
+                    <GiMailbox className="" />
+                  </div>
+
+                  <span className="absolute font-extrabold rounded-full  top-0 right-0">
+                    {data}
                   </span>
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Menu as="div" className="z-40  inline-block">
-                <Menu.Button className="flex justify-center items-center">
+                </div>
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/">
+              <a>
+                <div className="flex flex-row justify-between items-center w-full">
+                  <span className="">Site Principal</span>
+                  <AiOutlineHome />
+                </div>
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Menu as="div" className="">
+              <Menu.Button className="flex w-full  items-center">
+                <div className="flex flex-row justify-between items-center w-full">
                   <MdProductionQuantityLimits />
-                  <span className="flex-1 ml-3 whitespace-nowrap">
-                    Manageriaza Produsele
-                  </span>
-                </Menu.Button>
-                <Menu.Items className="absolute  w-56 bg-white origin-top-right shadow-lg">
-                  {" "}
-                  <Menu.Item>
-                    <DropdownLink
-                      href="/dashboard/produse/adauga-produse"
-                      className="dropdown-link"
-                    >
-                      Adauga un produs nou
-                    </DropdownLink>
-                  </Menu.Item>
-                  <Menu.Item>
-                    <DropdownLink href="/" className="dropdown-link">
-                      lorem
-                    </DropdownLink>
-                  </Menu.Item>
-                </Menu.Items>
-              </Menu>
-            </li>
-            <li>
-              <Link href="/dashboard/utilizatori">
-                <a
-                  href="#"
-                  className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  <BiUser />
-                  <span className="flex-1 ml-3 whitespace-nowrap">
-                    Utilizatori
-                  </span>
-                </a>
-              </Link>
-            </li>
-            <li>
+                  <span>Produse</span>
+                </div>
+              </Menu.Button>
+              <Menu.Items className="absolute  bg-white origin-top-right shadow-lg w-full overflow-visible">
+                <Menu.Item>
+                  <DropdownLink
+                    className="dropdown-link "
+                    href="/dashboard/inventar"
+                  >
+                    <div className="flex flex-row justify-between items-center w-full">
+                      <MdOutlineInventory />
+
+                      <span> Inventar</span>
+                    </div>
+                  </DropdownLink>
+                </Menu.Item>
+                <Menu.Item>
+                  <DropdownLink
+                    href="/dashboard/produse/adauga-produse"
+                    className="dropdown-link"
+                  >
+                    <div className="flex flex-row justify-between items-center w-full">
+                      <GrFormAdd />
+                      <span>Adauga un produs nou</span>
+                    </div>
+                  </DropdownLink>
+                </Menu.Item>
+                <Menu.Item>
+                  <DropdownLink href="/" className="dropdown-link">
+                    lorem
+                  </DropdownLink>
+                </Menu.Item>
+              </Menu.Items>
+            </Menu>
+          </li>
+          <li>
+            <Link href="/dashboard/utilizatori">
               <a
                 href="#"
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <RiLogoutCircleRLine />
-                <span
-                  onClick={handleLogOut}
-                  className="flex-1 ml-3 whitespace-nowrap"
-                >
-                  LogOut
+                <BiUser />
+                <span className="flex-1 ml-3 whitespace-nowrap">
+                  Utilizatori
                 </span>
               </a>
-            </li>
-          </ul>
-        </div>
-      </aside>
-    </div>
+            </Link>
+          </li>
+          <li>
+            <a
+              href="#"
+              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              <RiLogoutCircleRLine />
+              <span
+                onClick={handleLogOut}
+                className="flex-1 ml-3 whitespace-nowrap"
+              >
+                LogOut
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
   );
 };
 

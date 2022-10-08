@@ -1,11 +1,18 @@
 import React from "react";
 import useSWR from "swr";
+import Spinner from "./../../../components/spinner/Spinner";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const PaginaUtilizatori = () => {
   const { data, error } = useSWR("/api/dashboard/utilizatori", fetcher);
-  console.log("data", data);
+  if (!data)
+    return (
+      <div>
+        <Spinner />
+      </div>
+    );
+
   return (
     <div id="pagina Utilizatori" className="container grid grid-cols-2">
       {data.map((utilizator, index) => {
