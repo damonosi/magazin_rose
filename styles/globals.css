@@ -6,7 +6,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  background-color: #cfd6ea;
+
   font-family: "Playfair Display", serif;
 }
 
@@ -78,7 +78,7 @@ textarea {
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
-  height: 114px;
+  height: 116px;
 }
 .devider-hero-trandafiri .shape-fill-trandafiri {
   @apply fill-roz;

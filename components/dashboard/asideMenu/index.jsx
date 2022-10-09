@@ -32,7 +32,7 @@ const AsideMenu = () => {
   const iconStyle = { fontSize: "30px" };
   return (
     <aside className="h-fit w-64 " aria-label="Sidebar">
-      <div className=" py-4 px-3 bg-gray-50 rounded h-fit sticky">
+      <div className=" py-4 px-3 bg-gray-50 rounded h-fit ">
         <ul className="space-y-4 relative">
           <li>
             <Link href="/dashboard/comenzi">

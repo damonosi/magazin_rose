@@ -13,10 +13,10 @@ const UserLayout = ({ title, children }) => {
       </Head>
       <ToastContainer position="bottom-center" limit={1} />
 
-      <div className=" flex min-h-screen flex-col  ">
+      <div className=" flex min-h-screen justify-center items-center flex-col  ">
         <Header />
 
-        <main className="  overflow-x-hidden">{children}</main>
+        <main className="container  overflow-x-hidden">{children}</main>
 
         <Footer />
       </div>

@@ -13,8 +13,8 @@ const HeroSection = () => {
   const animationDuration = 2;
   const [isInView, setIsInView] = useState(false);
   return (
-    <section className="container relative flex z-30">
-      <div className="bg-fundal text-white py-20 tracking-widest ">
+    <section className="container relative flex items-center justify-center bg-fundal  py-20 w-full">
+      <div className=" tracking-widest ">
         <div className="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24 text-text">
           <div className="flex flex-col w-full lg:w-1/3 justify-center items-start p-8 ">
             <h1 className="text-3xl md:text-5xl p-2 text-roz tracking-loose">
@@ -126,19 +126,19 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="devider-hero-trandafiri">
-        <svg
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-            className="shape-fill-trandafiri"
-          ></path>
-        </svg>
+        <div className="devider-hero-trandafiri">
+          <svg
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+              className="shape-fill-trandafiri"
+            ></path>
+          </svg>
+        </div>
       </div>
     </section>
   );

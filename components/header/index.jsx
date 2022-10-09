@@ -24,7 +24,7 @@ const Header = () => {
     signOut({ callbackUrl: "/auth/login" });
   };
   return (
-    <header className=" bg-fundal px-4 border-roz border-b-8">
+    <header className="container bg-fundal px-4 border-roz border-b-8">
       <nav className="flex h-12 items-center px-4 justify-between shadow-md">
         <Link href="/">
           <a className="text-lg text-roz font-bold">RoseDimat</a>
