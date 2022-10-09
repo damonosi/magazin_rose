@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { BsFillStarFill } from "react-icons/bs";
-import { ImStarHalf } from "react-icons/im";
+
 import { ImStarEmpty } from "react-icons/im";
 
 const RatingComponent = ({ idProdus, rating, nrRevieuri }) => {

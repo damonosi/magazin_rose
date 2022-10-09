@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import useSWR from "swr";
 import Spinner from "../../../components/spinner/Spinner";
-import Image from "next/image";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 

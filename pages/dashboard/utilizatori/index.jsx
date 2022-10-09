@@ -13,9 +13,9 @@ const PaginaUtilizatori = () => {
         <Spinner />
       </div>
     );
-  const handleDeleteUser = async () => {
-    axios;
-  };
+  if (error) {
+    return "No data...";
+  }
   return (
     <div id="pagina Utilizatori" className="container">
       <table className="w-full text-sm text-left   relative">
