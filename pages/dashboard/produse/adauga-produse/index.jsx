@@ -6,13 +6,7 @@ import { getError } from "../../../../utils/error";
 import Select from "react-select";
 
 const PaginaProduse = () => {
-  const {
-    handleSubmit,
-    register,
-    reset,
-    control,
-    formState: { errors },
-  } = useForm();
+  const { handleSubmit, register, reset, control } = useForm();
   const submitHandler = async ({
     name,
     slug,
