@@ -6,7 +6,9 @@ import Ofloare from "../../../public/images/tradafir-floare.png";
 import UleiProfil from "../../../public/images/uleiProfil.png";
 import PetaleLemn from "../../../public/images/petaleLemn.png";
 import { IoMdRose } from "react-icons/io";
+import { BsArrowRight } from "react-icons/bs";
 import InViewWrapper from "../../componente-animate/InViewWrapper.tsx";
+import Link from "next/link";
 
 const TrandafiriSection = () => {
   return (
@@ -105,6 +107,34 @@ const TrandafiriSection = () => {
             de tonifiere, înlătură oboseala şi anxietatea, ajută inima şi curăţă
             pielea în profunzime.
           </p>
+        </InViewWrapper>
+        <InViewWrapper
+          inView={{ opacity: 1 }}
+          notInView={{ opacity: 0 }}
+          tranzitie={{ duration: 2 }}
+          clasa={"flex   mt-36 ml-40"}
+        >
+          <Link href="">
+            <a>
+              <div className="w-3/5 ml-36 p-4 bg-white rounded  hover:bg-slate-400">
+                <div className="flex items-center   w-full  pt-4 pb-4 text-sm transition ease-in-out delay-150  hover:text-black relative">
+                  <div className="w-4/5 ">
+                    {" "}
+                    <span className="w-full mr-4">Vezi Produsele </span>
+                  </div>
+                  <div className=" transition ease-in-out delay-150 hover:translate-x-2 w-1/5">
+                    <span>
+                      <BsArrowRight />
+                    </span>
+                  </div>
+                  <span className="absolute top-0 right-0">
+                    {" "}
+                    <IoMdRose />
+                  </span>
+                </div>
+              </div>
+            </a>
+          </Link>
         </InViewWrapper>
       </div>
       <div className="flex w-1/3 flex-col items-center relative justify-center  h-auto">

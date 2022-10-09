@@ -9,6 +9,7 @@ import db from "../../utils/db";
 import Product from "../../models/Product";
 import axios from "axios";
 import { toast } from "react-toastify";
+import RatingComponent from "./../../components/reviews/RatingComponent";
 
 export default function ProductScreen(props) {
   const { product } = props;
@@ -30,31 +31,40 @@ export default function ProductScreen(props) {
     router.push("/cart");
   };
   return (
-    <div className="flex w-full h-auto min-h-screen p-16 relative justify-center">
+    <div className="flex w-full h-auto min-h-screen pt-6 relative justify-center ">
       <div className="p-2 absolute top-0 left-0 justify-center">
         <Link href="/produse">Innapoi la Produse</Link>
       </div>
-      <div className="grid grid-cols-3 gap-3 items-center">
-        <div className="flex w-full h-full max-h-96 align-center justify-center">
-          <div className="md:col-span-2 relative w-2/6 h-1/1">
+
+      <div className="container grid grid-cols-2 p-16 gap-6 max-w-4xl  items-center bg-slate-500">
+        <div className="flex h-full w-full flex-col justify-center items-end ">
+          <div className="flex relative w-80  h-96">
             <Image src={product.image} alt={product.name} layout="fill" />
           </div>
+          <div className="flex w-full items-start">
+            <RatingComponent
+              idProdus={product._id}
+              nrRevieuri={product.numReviews}
+              rating={product.rating}
+            />
+          </div>
         </div>
-        <div>
-          <ul className="flex flex-col gap-3 p-6 pr-16">
-            <li>
-              <h1 className="text-lg">{product.name}</h1>
-            </li>
-            <li>Categorie : {product.category}</li>
-            <li>
-              {product.rating} din {product.numReviews} revieuri
-            </li>
-            <li>
-              <h1 className="text-lg">Descriere : {product.description}</h1>
-            </li>
-          </ul>
-        </div>
-        <div className="p-16">
+        <div className="grid grid-cols-1  max-w-sm gap-6">
+          <div className="flex  h-full items-start">
+            <ul className="flex flex-col  gap-16  rounded pr-16  ">
+              <li>
+                <h1 className="text-lg">{product.name}</h1>
+              </li>
+              <li>Categorie : {product.category}</li>
+              <li>
+                {product.rating} din {product.numReviews} revieuri
+              </li>
+              <li>
+                <h1 className="text-lg">Descriere : {product.description}</h1>
+              </li>
+            </ul>
+          </div>
+
           <div className="card p-5">
             <div className="mb-2 flex justify-between">
               <div>Pret</div>

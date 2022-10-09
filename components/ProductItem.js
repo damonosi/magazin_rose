@@ -9,7 +9,7 @@ const ProductItem = ({ product, addToCartHandler }) => {
       <div className="container flex justify-center items-center  w-full max-w-xs p-16  h-32 relative">
         <Link href={`/produse/${product.slug}`}>
           <a>
-            <div className="flex w-28 h-40 relative">
+            <div className="block w-24 h-36 relative ">
               <Image
                 src={product.image}
                 alt={product.name}
