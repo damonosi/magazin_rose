@@ -1,7 +1,13 @@
 import Product from "../../../../models/Product";
 import db from "../../../../utils/db";
-
+import { getSession } from "next-auth/react";
 const handler = async (req, res) => {
+  const session = await getSession({ req });
+
+  if (!session) {
+    return res.status(401).send("signin required");
+  }
+  const userId = session.user._id;
   const {
     name,
     slug,
@@ -20,10 +26,12 @@ const handler = async (req, res) => {
     image,
     price,
     cantitate,
-
     countInStock,
     description,
+    numReviews: +1,
+    review: { user: userId },
   });
+
   const produs = await produsNou.save();
   db.disconnect();
   res.send(produs);

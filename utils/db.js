@@ -33,6 +33,14 @@ async function disconnect() {
 function convertDocToObj(doc) {
   doc._id = doc._id.toString();
   doc.createdAt = doc.createdAt.toString();
+  function transformIdToString(arr) {
+    arr.map((i) => {
+      i._id = i._id.toString();
+      return i;
+    });
+  }
+  transformIdToString(doc.review);
+
   doc.updatedAt = doc.updatedAt.toString();
   return doc;
 }

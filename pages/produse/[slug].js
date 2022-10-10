@@ -9,7 +9,8 @@ import db from "../../utils/db";
 import Product from "../../models/Product";
 import axios from "axios";
 import { toast } from "react-toastify";
-import RatingComponent from "./../../components/reviews/RatingComponent";
+
+import ReviewComponent from "./../../components/reviews/RatingComponent";
 
 export default function ProductScreen(props) {
   const { product } = props;
@@ -30,6 +31,7 @@ export default function ProductScreen(props) {
     dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });
     router.push("/cart");
   };
+  console.log(product.scorMedieReview);
   return (
     <div className="flex w-full h-auto min-h-screen pt-6 relative justify-center ">
       <div className="p-2 absolute top-0 left-0 justify-center">
@@ -41,11 +43,11 @@ export default function ProductScreen(props) {
           <div className="flex relative w-80  h-96">
             <Image src={product.image} alt={product.name} layout="fill" />
           </div>
-          <div className="flex w-full items-start">
-            <RatingComponent
+          <div className="flex w-full flex-col bg-slate-50 p-6 items-center">
+            <ReviewComponent
               idProdus={product._id}
               nrRevieuri={product.numReviews}
-              rating={product.rating}
+              rating={product.scorMedieReview}
             />
           </div>
         </div>
