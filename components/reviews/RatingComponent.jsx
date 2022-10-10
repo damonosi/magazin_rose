@@ -16,9 +16,9 @@ const ReviewComponent = ({ idProdus, rating, nrRevieuri }) => {
   return (
     <div className="w-full">
       <div className="w-full flex flex-col justify-center items-center">
-        <div className="flex  justify-between w-full p-6 pl-0 pr-0">
-          <div className="flex  9/12">
-            <div id="stele">
+        <div className="flex justify-between  w-full p-6 pl-0 pr-0">
+          <div className="flex  items-center justify-between 9/12">
+            <div className="flex" id="stele">
               {[...new Array(totalStars)].map((arr, index) => {
                 index = index + 1;
                 return (
@@ -41,16 +41,17 @@ const ReviewComponent = ({ idProdus, rating, nrRevieuri }) => {
                 );
               })}
             </div>
-            <div>
-              <p>{rating}</p>
-            </div>
+            <div className="flex ml-2">{activeStar}</div>
           </div>
-          <div className=" flex 3/12" id="punctaj">
-            <p>{nrRevieuri} revieuri</p>
+          <div className=" flex 3/12 " id="punctaj">
+            <p>
+              {rating} din {nrRevieuri} revieuri
+            </p>
           </div>
         </div>
-        <div>
+        <div className="w-full h-28 pt-2 pb-2">
           <input
+            className="w-full h-28"
             onChange={(e) => {
               setComentariu(e.target.value);
             }}
@@ -60,6 +61,7 @@ const ReviewComponent = ({ idProdus, rating, nrRevieuri }) => {
         </div>
       </div>
       <button
+        className="bg-roz p-4 rounded"
         onClick={async () =>
           await axios.post("/api/review/adauga-review", {
             comentariu,
