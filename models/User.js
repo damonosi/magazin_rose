@@ -6,6 +6,12 @@ const userSchema = new mongoose.Schema(
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     isAdmin: { type: Boolean, required: true, default: false },
+    image: {
+      type: String,
+      required: true,
+      default:
+        "https://res.cloudinary.com/dyfedllac/image/upload/v1665469559/rose-dimat/stiock_profile_o2p6fm.jpg",
+    },
   },
   {
     timestamps: true,

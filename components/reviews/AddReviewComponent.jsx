@@ -3,21 +3,23 @@ import React, { useState } from "react";
 import { BsFillStarFill } from "react-icons/bs";
 
 import { ImStarEmpty } from "react-icons/im";
+import { toast } from "react-toastify";
 
-const ReviewComponent = ({ idProdus, rating, nrRevieuri }) => {
+const AddReviewComponent = ({ idProdus, rating, nrRevieuri }) => {
   const [activeStar, setActiveStar] = useState(rating);
   const [comentariu, setComentariu] = useState("");
+  const [disabled, setDisabled] = useState(false);
   const totalStars = 5;
 
   const handleClick = (index) => {
     setActiveStar(index);
   };
-  console.log(activeStar);
+
   return (
-    <div className="w-full">
+    <div className="flex  flex-col h-auto  items-center max-w-3xl">
       <div className="w-full flex flex-col justify-center items-center">
         <div className="flex justify-between  w-full p-6 pl-0 pr-0">
-          <div className="flex  items-center justify-between 9/12">
+          <div className="flex  items-center justify-between">
             <div className="flex" id="stele">
               {[...new Array(totalStars)].map((arr, index) => {
                 index = index + 1;
@@ -49,26 +51,37 @@ const ReviewComponent = ({ idProdus, rating, nrRevieuri }) => {
             </p>
           </div>
         </div>
-        <div className="w-full h-28 pt-2 pb-2">
-          <input
-            className="w-full h-28"
+        <div className="w-full h-28  ">
+          <textarea
+            style={{ resize: "none" }}
+            className="w-full h-24 text-"
             onChange={(e) => {
               setComentariu(e.target.value);
             }}
+            required
             type="text"
             placeholder="comentariu"
           />
         </div>
       </div>
       <button
-        className="bg-roz p-4 rounded"
-        onClick={async () =>
-          await axios.post("/api/review/adauga-review", {
-            comentariu,
-            activeStar,
-            idProdus,
-          })
-        }
+        className={`bg-roz p-4 rounded  ${
+          disabled ? "bg-gray-100 cursor-not-allowed" : ""
+        }`}
+        disabled={disabled}
+        onClick={async () => {
+          if (comentariu === "") {
+            toast.error("Adaugati un comentariu scurt");
+          } else {
+            setDisabled(true);
+            await axios.post("/api/review/adauga-review", {
+              comentariu,
+              activeStar,
+              idProdus,
+            });
+            toast.success("Multumim pentru feedback");
+          }
+        }}
       >
         adauga review
       </button>
@@ -76,4 +89,4 @@ const ReviewComponent = ({ idProdus, rating, nrRevieuri }) => {
   );
 };
 
-export default ReviewComponent;
+export default AddReviewComponent;

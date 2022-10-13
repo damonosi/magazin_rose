@@ -16,7 +16,7 @@ const UserLayout = ({ title, children }) => {
       <div className=" flex min-h-screen justify-center  items-center flex-col  ">
         <Header />
 
-        <main className="container  overflow-x-hidden">{children}</main>
+        <main className="container  overflow-x-hidden mt-14">{children}</main>
 
         <Footer />
       </div>

@@ -1,6 +1,7 @@
 import Product from "../../../models/Product";
 import db from "../../../utils/db";
 import { getSession } from "next-auth/react";
+import User from "../../../models/User";
 
 function medieScorReview(arr) {
   const average = arr.reduce((a, b) => a + b, 0) / arr.length;
@@ -23,16 +24,22 @@ const handler = async (req, res) => {
   await db.connect();
 
   const produsDeUpdatat = await Product.findById(idProdus);
+  const userComentariu = await User.findById(userId);
 
   const numarReview = produsDeUpdatat.numReviews + 1;
-
+  const imagine = userComentariu.image;
+  const nume = userComentariu.name;
   const produsUpdatat = await Product.findOneAndUpdate(
     {
       _id: idProdus,
     },
     {
       $addToSet: {
-        review: { rating: steleOferite, comentariu, user: userId },
+        review: {
+          rating: steleOferite,
+          comentariu,
+          user: { _id: userId, name: nume, image: imagine },
+        },
       },
       $set: {
         numReviews: numarReview,

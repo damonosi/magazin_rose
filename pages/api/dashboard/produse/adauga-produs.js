@@ -8,6 +8,8 @@ const handler = async (req, res) => {
     return res.status(401).send("signin required");
   }
   const userId = session.user._id;
+  const userName = session.user.name;
+
   const {
     name,
     slug,
@@ -29,7 +31,7 @@ const handler = async (req, res) => {
     countInStock,
     description,
     numReviews: +1,
-    review: { user: userId },
+    review: { user: { _id: userId, name: userName } },
   });
 
   const produs = await produsNou.save();

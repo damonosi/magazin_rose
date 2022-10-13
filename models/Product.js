@@ -13,8 +13,17 @@ const productSchema = new mongoose.Schema(
         rating: { type: Number, required: true, default: 5 },
         comentariu: { type: String, required: false },
         user: {
-          type: String,
-          required: true,
+          _id: { type: mongoose.Schema.Types.ObjectId },
+          name: {
+            type: String,
+            required: true,
+          },
+          image: {
+            type: String,
+            required: true,
+            default:
+              "https://res.cloudinary.com/dyfedllac/image/upload/v1665469559/rose-dimat/stiock_profile_o2p6fm.jpg",
+          },
         },
       },
     ],

@@ -36,6 +36,7 @@ function convertDocToObj(doc) {
   function transformIdToString(arr) {
     arr.map((i) => {
       i._id = i._id.toString();
+      i.user._id = i.user._id.toString();
       return i;
     });
   }
