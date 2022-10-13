@@ -5,6 +5,7 @@ import Image from "next/image";
 import Ofloare from "../../../public/images/tradafir-floare.png";
 import UleiProfil from "../../../public/images/uleiProfil.png";
 import PetaleLemn from "../../../public/images/petaleLemn.png";
+import VitC from "../../../public/images/vit-c.png";
 import { IoMdRose } from "react-icons/io";
 import { BsArrowRight } from "react-icons/bs";
 import InViewWrapper from "../../componente-animate/InViewWrapper.tsx";
@@ -18,11 +19,17 @@ const TrandafiriSection = () => {
         notInView={{ y: 50, opacity: 0 }}
         tranzitie={{ duration: 1 }}
         clasa={
-          "flex border-2 absolute rounded-sm w-fit p-6 justify-center items-center"
+          "flex border-2 flex-col absolute rounded-sm w-fit p-6 justify-center border-black items-center"
         }
       >
-        <h1>Trandafiri de Damasc</h1>
-        <IoMdRose className="ml-2" />
+        <div className="flex mb-2 justify-center items-center">
+          <h1>Trandafiri de Damasc</h1>
+          <IoMdRose className="ml-2" />
+        </div>
+
+        <hr className=" w-full  hover:border-roz duration-500" />
+        <br />
+        <h2 className="mt-2">Beneficii</h2>
       </InViewWrapper>
 
       <div
@@ -33,7 +40,7 @@ const TrandafiriSection = () => {
           inView={{ opacity: 1 }}
           notInView={{ opacity: 0 }}
           tranzitie={{ duration: 2 }}
-          clasa={"flex  mt-28 mb-28 "}
+          clasa={"flex border-2 w-fit p-6 mt-28 mb-28 border-black rounded"}
         >
           {" "}
           <p>Să nu uităm de răsfățul simțurilor!</p>
@@ -42,9 +49,15 @@ const TrandafiriSection = () => {
           inView={{ opacity: 1 }}
           notInView={{ opacity: 0 }}
           tranzitie={{ duration: 2 }}
-          clasa={"flex w-3/4  mt-36 ml-10"}
+          clasa={
+            "flex flex-col w-3/4 border-2 border-black rounded p-6 relative mt-36 ml-10"
+          }
         >
-          <p>
+          <span className=" w-fit border-2 absolute top-0 left-0 border-black border-l-0 p-1 border-t-0">
+            Vitamina C
+          </span>
+
+          <p className="mt-6">
             Trandafirii conțin vitamina C, un puternic antioxidant ce ajută în
             lupta împotriva îmbătrânirii premature, îmbunătățind astfel
             elasticitatea pielii și atenuând ridurile.
@@ -54,10 +67,14 @@ const TrandafiriSection = () => {
           inView={{ opacity: 1 }}
           notInView={{ opacity: 0 }}
           tranzitie={{ duration: 2 }}
-          clasa={"flex w-3/4  mt-36 ml-16"}
+          clasa={
+            "flex w-3/4 relative mt-36 ml-16 border-2 rounded border-black p-6 "
+          }
         >
-          {" "}
-          <p>
+          <span className=" w-fit border-2 absolute top-0 left-0 border-black border-l-0 p-1 border-t-0">
+            Aroma
+          </span>
+          <p className="mt-6">
             Aroma captivantă a trandafirului de Damasc conferă o prospețime
             elegantă produselor cosmetice care îl conțin și fac ca utilizarea
             acestora să fie o adevărată încântare!
@@ -68,10 +85,14 @@ const TrandafiriSection = () => {
           inView={{ opacity: 1 }}
           notInView={{ opacity: 0 }}
           tranzitie={{ duration: 2 }}
-          clasa={"flex w-3/4  mt-36 ml-24"}
+          clasa={
+            "flex w-3/4 relative mt-36 ml-24 border-2 rounded border-black p-6 "
+          }
         >
-          {" "}
-          <p>
+          <span className=" w-fit border-2 absolute top-0 left-0 border-black border-l-0 p-1 border-t-0">
+            Vindecare
+          </span>
+          <p className="mt-6">
             Puterea tămăduitoare a trandafirului stă în parfum şi petalele
             bogate în acid citric, flavonoide, saponozide, steroli, cianină,
             fructoză, acid malic, sucroză, tanin, vitaminele A, B, C, D, E, P şi
@@ -83,10 +104,14 @@ const TrandafiriSection = () => {
           inView={{ opacity: 1 }}
           notInView={{ opacity: 0 }}
           tranzitie={{ duration: 2 }}
-          clasa={"flex w-3/4  mt-36 ml-32"}
+          clasa={
+            "flex w-3/4 relative border-black mt-36 ml-32 rounded border-2 p-6 "
+          }
         >
-          {" "}
-          <p>
+          <span className=" w-fit border-2 absolute top-0 left-0 border-black border-l-0 p-1 border-t-0">
+            Aromaterapie
+          </span>
+          <p className="mt-6">
             Folosit în aromaterapie, parfumul trandafirului de Damasc luptă
             împotriva depresiei şi a stărilor de anxietate, creşte puterea de
             concentrare, îmbunătățește memoria și poate îndepărta durerile de
@@ -98,10 +123,14 @@ const TrandafiriSection = () => {
           inView={{ opacity: 1 }}
           notInView={{ opacity: 0 }}
           tranzitie={{ duration: 2 }}
-          clasa={"flex w-3/4  mt-36 ml-40"}
+          clasa={
+            "flex w-3/4  mt-36 ml-40 border-2 border-black rounded relative p-6 "
+          }
         >
-          {" "}
-          <p>
+          <span className=" w-fit border-2 absolute top-0 left-0 border-black border-l-0 p-1 border-t-0">
+            Relaxant
+          </span>
+          <p className="mt-6">
             Știai că băile cu infuzie de trandafiri se recomandă în caz de
             afecţiuni ale sistemului nervos? Asta pentru că trandafirii au efect
             de tonifiere, înlătură oboseala şi anxietatea, ajută inima şi curăţă
@@ -112,7 +141,7 @@ const TrandafiriSection = () => {
           inView={{ opacity: 1 }}
           notInView={{ opacity: 0 }}
           tranzitie={{ duration: 2 }}
-          clasa={"flex   mt-36 ml-40"}
+          clasa={"flex   mt-36 ml-40  p-6 "}
         >
           <Link href="">
             <a>
