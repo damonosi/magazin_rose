@@ -5,7 +5,7 @@ import Image from "next/image";
 import Ofloare from "../../../public/images/tradafir-floare.png";
 import UleiProfil from "../../../public/images/uleiProfil.png";
 import PetaleLemn from "../../../public/images/petaleLemn.png";
-import VitC from "../../../public/images/vit-c.png";
+
 import { IoMdRose } from "react-icons/io";
 import { BsArrowRight } from "react-icons/bs";
 import InViewWrapper from "../../componente-animate/InViewWrapper.tsx";
