@@ -4,23 +4,23 @@ import db from "../../../../utils/db";
 import Order from "./../../../../models/Order";
 
 const handler = async (req, res) => {
-  const session = await getSession({ req });
+	const session = await getSession({ req });
 
-  if (!session) {
-    return res.status(401).send("signin required");
-  }
+	if (!session) {
+		return res.status(401).send("signin required");
+	}
 
-  await db.connect();
-  const comenzi = await Order.find();
+	await db.connect();
+	const comenzi = await Order.find().lean();
 
-  let nrComenzi = 0;
+	let nrComenzi = 0;
 
-  for (let proprieties in comenzi) {
-    nrComenzi = nrComenzi + 1;
-  }
+	for (let proprieties in comenzi) {
+		nrComenzi = nrComenzi + 1;
+	}
 
-  db.disconnect();
+	db.disconnect();
 
-  res.send(nrComenzi);
+	res.send(nrComenzi);
 };
 export default handler;

@@ -13,6 +13,9 @@ import FullReviewComponent from "../../components/reviews/FullReviewComponent";
 import { BsFillStarFill } from "react-icons/bs";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
+import categorieApicole from "../../public/images/honeycomb.png";
+import categorieTrandafiri from "../../public/images/rose.png";
+
 export default function ProductScreen(props) {
   const { product } = props;
   const { state, dispatch } = useContext(Store);
@@ -90,8 +93,13 @@ export default function ProductScreen(props) {
                 <span className="mr-4"> Categorie</span>
                 <AiOutlineArrowRight />
               </div>
-              <span className={`${hover ? "visible" : "hidden"}`}>
-                {product.category}
+              <span className={`${hover ? "visible h-6" : "hidden"}`}>
+                {product.category === "produse apicole" && (
+                  <Image src={categorieApicole} alt="apicole" />
+                )}
+                {product.category === "produse trandafiri" && (
+                  <Image src={categorieTrandafiri} alt="trandafiri" />
+                )}
               </span>
             </li>
             <li className="flex flex-col ">

@@ -1,0 +1,11 @@
+
+
+1-----nafe (nextjs arrow function (export at the end))
+
+2-----ncdocument (nextjs custom document)
+
+3-----napi (nextjs api route)
+
+4-----nil (nextjs import link)
+
+5-----niur (nextjs import useRouter)
