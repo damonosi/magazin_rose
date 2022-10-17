@@ -1,8 +1,10 @@
 import React from "react";
 import Image from "next/image";
 
-import Ofloare from "../../../public/images/3-flori.png";
-import DiagramaTrandafiri from "../../../public/images/diagrama-beneficii-trandafiri.png";
+import SagetiDiagrama from "../../../public/images/diagrama-trandafiri/sageti.png";
+import FloareDiagrama from "../../../public/images/diagrama-trandafiri/flori-diagrama.png";
+import TextDiagrama from "../../../public/images/diagrama-trandafiri/vitamine.png";
+
 import UleiProfil from "../../../public/images/uleiProfil.png";
 import PetaleLemn from "../../../public/images/flori-trandafir.png";
 
@@ -13,7 +15,7 @@ import Link from "next/link";
 
 const TrandafiriSection = () => {
 	return (
-		<section className="flex z-20 flex-col relative bg-fundalTrandafiri text-textTrandafiri p-20 min-h-screen w-full tracking-widest ">
+		<section className="flex z-20 flex-col relative bg-fundalTrandafiri text-textTrandafiri py-20 min-h-screen w-full tracking-widest ">
 			<InViewWrapper
 				inView={{
 					y: 0,
@@ -41,10 +43,10 @@ const TrandafiriSection = () => {
 			</InViewWrapper>
 
 			<div
-				className="container  pt-6 pl-6  items-center justify-center  h-fit w-full mt-28"
+				className="container flex flex-col  pt-16  gap-72 items-center justify-center  h-fit w-full mt-28"
 				id="content-trandafiri">
 				<div
-					className="flex w-full  p-6 relative rounded gap-6 shadow-xl bg-gradient-to-l from-roz to-fundalTrandafiri"
+					className="flex w-full mt-16  p-6 relative rounded gap-6  bg-gradient-to-l from-roz to-fundalTrandafiri"
 					id="prima-sectiune-trandafiri">
 					<InViewWrapper
 						inView={{
@@ -78,7 +80,7 @@ const TrandafiriSection = () => {
 							duration: 1,
 						}}
 						delay={500}
-						clasa={"  w-2/5"}>
+						clasa={"p-16  w-2/5 "}>
 						<Image
 							src={PetaleLemn}
 							alt="trandafir"
@@ -140,27 +142,66 @@ const TrandafiriSection = () => {
 						</a>
 					</Link>
 				</div>
-				<InViewWrapper
-					inView={{
-						x: 10,
-						opacity: 1,
-					}}
-					notInView={{
-						x: 0,
-						opacity: 0,
-					}}
-					tranzitie={{
-						duration: 2,
-					}}
-					clasa={
-						"w-full bg-gradient-to-l  from-roz to-fundalTrandafiri flex justify-center mt-16"
-					}
-					delay={500}>
-					<Image
-						src={DiagramaTrandafiri}
-						alt="trandafiri-diagrama"
-					/>
-				</InViewWrapper>
+				<div className=" flex justify-center items-center mt-16 w-full p-16 bg-black relative shadow-xl min-h-screen">
+					<InViewWrapper
+						inView={{
+							opacity: 1,
+						}}
+						notInView={{
+							opacity: 0.4,
+						}}
+						tranzitie={{
+							duration: 1,
+						}}
+						clasa={" mt-6 motion-safe:animate-spin-slow transition  ease-linear"}
+						delay={500}>
+						<Image
+							src={SagetiDiagrama}
+							alt="trandafiri-diagrama"
+						/>
+					</InViewWrapper>{" "}
+					<InViewWrapper
+						inView={{
+							opacity: 1,
+						}}
+						notInView={{
+							opacity: 0.4,
+						}}
+						tranzitie={{
+							duration: 1,
+						}}
+						clasa={
+							"absolute w-2/3 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 "
+						}
+						delay={500}>
+						<Image
+							src={TextDiagrama}
+							alt="trandafiri-diagrama"
+						/>
+					</InViewWrapper>{" "}
+					<InViewWrapper
+						inView={{
+							opacity: 1,
+						}}
+						notInView={{
+							opacity: 0.4,
+						}}
+						tranzitie={{
+							duration: 1,
+						}}
+						clasa={
+							"absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 "
+						}
+						delay={500}>
+						<Image
+							src={FloareDiagrama}
+							alt="trandafiri-diagrama"
+						/>
+					</InViewWrapper>{" "}
+					<span className="absolute top-0 left-0 text-fundalTrandafiri text-2xl p-10 underline underline-offset-8">
+						Un complex deosebit de vitamine si minerale
+					</span>
+				</div>
 				<InViewWrapper
 					inView={{
 						opacity: 1,

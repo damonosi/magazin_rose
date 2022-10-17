@@ -13,6 +13,9 @@ module.exports = {
 				textTrandafiri: "#080808",
 			},
 		},
+		animation: {
+			"spin-slow": "spin 25s linear infinite",
+		},
 	},
 	plugins: [],
 };
