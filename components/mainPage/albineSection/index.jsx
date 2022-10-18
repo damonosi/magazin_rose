@@ -48,7 +48,9 @@ const AlbineSection = () => {
 					</p>
 				</div>
 				<div className="flex w-1/2 justify-center items-center">
-					<Image src={MiereImage}></Image>
+					<Image
+						alt="imagine-miere"
+						src={MiereImage}></Image>
 				</div>
 			</div>
 		</motion.section>

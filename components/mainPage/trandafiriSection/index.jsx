@@ -2,8 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 import SagetiDiagrama from "../../../public/images/diagrama-trandafiri/sageti.png";
-import FloareDiagrama from "../../../public/images/diagrama-trandafiri/flori-diagrama.png";
-import TextDiagrama from "../../../public/images/diagrama-trandafiri/vitamine.png";
+import FloareTextDiagrama from "../../../public/images/diagrama-trandafiri/floare-text.png";
 
 import UleiProfil from "../../../public/images/uleiProfil.png";
 import PetaleLemn from "../../../public/images/flori-trandafir.png";
@@ -87,7 +86,6 @@ const TrandafiriSection = () => {
 						/>{" "}
 					</InViewWrapper>
 				</div>
-
 				<div
 					className="flex  mb-28 mt-28  w-full  h-1/3 shadow-xl rounded relative  items-center justify-center p-8"
 					id="aDoua-sectiune-trandafiri">
@@ -142,62 +140,58 @@ const TrandafiriSection = () => {
 						</a>
 					</Link>
 				</div>
-				<div className=" flex justify-center items-center mt-16 w-full p-16 bg-black relative shadow-xl min-h-screen">
-					<InViewWrapper
-						inView={{
-							opacity: 1,
-						}}
-						notInView={{
-							opacity: 0.4,
-						}}
-						tranzitie={{
-							duration: 1,
-						}}
-						clasa={" mt-6 motion-safe:animate-spin-slow transition  ease-linear"}
-						delay={500}>
-						<Image
-							src={SagetiDiagrama}
-							alt="trandafiri-diagrama"
-						/>
-					</InViewWrapper>{" "}
-					<InViewWrapper
-						inView={{
-							opacity: 1,
-						}}
-						notInView={{
-							opacity: 0.4,
-						}}
-						tranzitie={{
-							duration: 1,
-						}}
-						clasa={
-							"absolute w-2/3 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 "
-						}
-						delay={500}>
-						<Image
-							src={TextDiagrama}
-							alt="trandafiri-diagrama"
-						/>
-					</InViewWrapper>{" "}
-					<InViewWrapper
-						inView={{
-							opacity: 1,
-						}}
-						notInView={{
-							opacity: 0.4,
-						}}
-						tranzitie={{
-							duration: 1,
-						}}
-						clasa={
-							"absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 "
-						}
-						delay={500}>
-						<Image
-							src={FloareDiagrama}
-							alt="trandafiri-diagrama"
-						/>
-					</InViewWrapper>{" "}
+
+				<div className=" flex  justify-center items-center mt-16 w-full py-28 px-10 bg-black relative shadow-xl h-screen">
+					<div className="flex w-1/3 bg-white">
+						<h2>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, qui
+							autem nobis voluptatem inventore accusamus!
+						</h2>
+					</div>
+					<div
+						className="flex w-2/3 flex-row items-center justify-center relative"
+						id="container-diagrama">
+						<InViewWrapper
+							inView={{
+								opacity: 1,
+							}}
+							notInView={{
+								opacity: 0.4,
+							}}
+							tranzitie={{
+								duration: 1,
+							}}
+							clasa={
+								"  w-full flex items-center justify-center w-1/6 animate-bounce-slow"
+							}
+							id="sageti"
+							delay={500}>
+							<Image
+								src={SagetiDiagrama}
+								alt="trandafiri-diagrama"
+							/>
+						</InViewWrapper>{" "}
+						<InViewWrapper
+							inView={{
+								opacity: 1,
+							}}
+							notInView={{
+								opacity: 0.4,
+							}}
+							tranzitie={{
+								duration: 1,
+							}}
+							clasa={
+								"absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 "
+							}
+							delay={500}>
+							<Image
+								src={FloareTextDiagrama}
+								alt="trandafiri-diagrama"
+							/>
+						</InViewWrapper>{" "}
+					</div>
+
 					<span className="absolute top-0 left-0 text-fundalTrandafiri text-2xl p-10 underline underline-offset-8">
 						Un complex deosebit de vitamine si minerale
 					</span>

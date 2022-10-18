@@ -57,7 +57,7 @@ const HeroSection = () => {
 									duration: animationDuration,
 								}}
 								onViewportEnter={() => setIsInView(true)}
-								className=" inline-block mt-28 w-1/4 hidden xl:block">
+								className="  mt-28 w-1/4 hidden xl:block">
 								<Image
 									alt="pozaTradafir"
 									src={TrandafirImg}
@@ -141,7 +141,7 @@ const HeroSection = () => {
 									duration: animationDuration,
 								}}
 								onViewportEnter={() => setIsInView(true)}
-								className="inline-block mt-28 w-1/4 hidden lg:block">
+								className="t-28 w-1/4 hidden lg:block">
 								<Image
 									alt="pozaTradafir"
 									src={MiereImg}
