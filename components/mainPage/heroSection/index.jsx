@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import TrandafirImg from "../../../public/images/damascRose.png";
 import AlbinaImg from "../../../public/images/albine.png";
-import MiereImg from "../../../public/images/miere.png";
+
 import FagureCurgator from "../../../public/images/fagure-curgator.png";
 import UleiImg from "../../../public/images/uleiDamasc.png";
 import Link from "next/link";
