@@ -3,6 +3,7 @@ import Image from "next/image";
 import TrandafirImg from "../../../public/images/damascRose.png";
 import AlbinaImg from "../../../public/images/albine.png";
 import MiereImg from "../../../public/images/miere.png";
+import FagureCurgator from "../../../public/images/fagure-curgator.png";
 import UleiImg from "../../../public/images/uleiDamasc.png";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -57,7 +58,7 @@ const HeroSection = () => {
 									duration: animationDuration,
 								}}
 								onViewportEnter={() => setIsInView(true)}
-								className="  mt-28 w-1/4 hidden xl:block">
+								className="  mt-28 w-1/4  hidden xl:block">
 								<Image
 									alt="pozaTradafir"
 									src={TrandafirImg}
@@ -85,7 +86,7 @@ const HeroSection = () => {
 									duration: animationDuration,
 								}}
 								onViewportEnter={() => setIsInView(true)}
-								className="inline-block mt-24 w-1/4 md:mt-0 p-8 md:p-0">
+								className="inline-block mt-24 w-1/4  md:mt-0 p-8 md:p-0">
 								<Image
 									alt="albine"
 									src={AlbinaImg}
@@ -113,7 +114,7 @@ const HeroSection = () => {
 									duration: animationDuration,
 								}}
 								onViewportEnter={() => setIsInView(true)}
-								className="inline-block mt-24 w-1/4 md:mt-0 p-8 md:p-0">
+								className="inline-block mt-24 w-1/4  md:mt-0 p-8 md:p-0">
 								<Image
 									alt="ulei-damasc"
 									src={UleiImg}
@@ -144,7 +145,7 @@ const HeroSection = () => {
 								className="mt-28 w-1/4 hidden lg:block">
 								<Image
 									alt="pozaTradafir"
-									src={MiereImg}
+									src={FagureCurgator}
 								/>
 							</motion.div>
 						</div>

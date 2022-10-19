@@ -57,7 +57,7 @@ const Header = () => {
 				opacity: 0,
 			}}
 			tranzitie={{
-				duration: 2,
+				duration: 1,
 			}}
 			clasa={`${
 				visible ? "sticky" : "hidden"
