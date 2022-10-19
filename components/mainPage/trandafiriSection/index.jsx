@@ -9,7 +9,7 @@ import UleiProfil from "../../../public/images/uleiProfil.png";
 import PetaleLemn from "../../../public/images/flori-trandafir.png";
 
 import { IoMdRose } from "react-icons/io";
-import { BsArrowRight, BsArrowRightCircleFill } from "react-icons/bs";
+import { BsArrowRightCircleFill } from "react-icons/bs";
 import InViewWrapper from "../../componente-animate/InViewWrapper.tsx";
 import Link from "next/link";
 
