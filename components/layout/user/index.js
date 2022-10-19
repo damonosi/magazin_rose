@@ -5,23 +5,29 @@ import Header from "./../../header/index";
 import Footer from "./../../footer/Footer";
 
 const UserLayout = ({ title, children }) => {
-  return (
-    <>
-      <Head>
-        <title>{title ? title + "- RoseDimat" : "RoseDimat"}</title>
-        <meta name="description" content="Ecommerce Website" />
-      </Head>
-      <ToastContainer position="bottom-center" limit={1} />
+	return (
+		<>
+			<Head>
+				<title>{title ? title + "- RoseDimat" : "RoseDimat"}</title>
+				<meta
+					name="description"
+					content="Ecommerce Website"
+				/>
+			</Head>
+			<ToastContainer
+				position="bottom-center"
+				limit={1}
+			/>
 
-      <div className=" flex min-h-screen justify-center  items-center flex-col  ">
-        <Header />
+			<div className=" flex min-h-screen justify-center  items-center flex-col  ">
+				<Header />
 
-        <main className="container  overflow-x-hidden mt-14">{children}</main>
+				<main className="container  overflow-x-hidden">{children}</main>
 
-        <Footer />
-      </div>
-    </>
-  );
+				<Footer />
+			</div>
+		</>
+	);
 };
 
 export default UserLayout;

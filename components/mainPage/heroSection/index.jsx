@@ -13,11 +13,11 @@ const HeroSection = () => {
 	const animationDuration = 2;
 	const [isInView, setIsInView] = useState(false);
 	return (
-		<section className="container relative flex items-center justify-center bg-fundal  py-20 w-full">
+		<section className="container relative flex items-center justify-center bg-textTrandafiri  py-20 w-full">
 			<div className=" tracking-widest ">
 				<div className="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24 text-text">
 					<div className="flex flex-col w-full lg:w-1/3 justify-center items-start p-8 ">
-						<h1 className="text-3xl md:text-5xl p-2 text-roz tracking-loose">
+						<h1 className="text-3xl md:text-5xl p-2 text-fundalTrandafiri tracking-loose">
 							RoseDimat
 						</h1>
 						<h2 className="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
@@ -28,7 +28,7 @@ const HeroSection = () => {
 							dragoste pentru natura si clientii nostrii
 						</p>
 						<Link href="/produse">
-							<a className="bg-transparent hover:bg-roz text-roz hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-roz hover:border-transparent">
+							<a className="bg-transparent hover:bg-roz text-fundalTrandafiri hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-roz hover:border-transparent">
 								Exploreaza Acu
 							</a>
 						</Link>
@@ -141,7 +141,7 @@ const HeroSection = () => {
 									duration: animationDuration,
 								}}
 								onViewportEnter={() => setIsInView(true)}
-								className="t-28 w-1/4 hidden lg:block">
+								className="mt-28 w-1/4 hidden lg:block">
 								<Image
 									alt="pozaTradafir"
 									src={MiereImg}
