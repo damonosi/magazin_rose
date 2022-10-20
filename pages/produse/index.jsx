@@ -30,13 +30,11 @@ const ToateProdusele = ({ products }) => {
 			{products
 				.sort((a, b) => (a.category = b.category))
 				.map((product) => (
-					<>
-						<ProductItem
-							addToCartHandler={addToCartHandler}
-							product={product}
-							key={product.slug}
-						/>
-					</>
+					<ProductItem
+						addToCartHandler={addToCartHandler}
+						product={product}
+						key={product.slug}
+					/>
 				))}
 		</div>
 	);

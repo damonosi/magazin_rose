@@ -20,6 +20,7 @@ module.exports = {
 		animation: {
 			"spin-slow": "spin 5s linear infinite",
 			"bounce-slow": "ping 5s linear infinite",
+			"move-x": "translate-x-1",
 		},
 		blur: {
 			xs: "1px",
@@ -27,4 +28,7 @@ module.exports = {
 	},
 	plugins: [],
 };
+
+
+
 

@@ -185,7 +185,7 @@ const TrandafiriSection = () => {
 					</InViewWrapper>
 				</div>
 				<div
-					className=" flex  justify-center items-center mt-16 w-11/12 py-28 px-10  relative shadow-xl h-screen  bg-gradient-to-r from-fromGr via-viaGr  to-toGr rounded"
+					className=" flex  justify-center items-center  mt-16 w-11/12 py-28 px-10  relative shadow-2xl h-screen  bg-gradient-to-r from-fromGr via-viaGr  to-toGr rounded"
 					id="sectiune-diagrama">
 					<div className="flex w-1/3 bg-white">
 						<h2>

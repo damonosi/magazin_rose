@@ -9,9 +9,11 @@ import DropdownLink from "../DropdownLink";
 import Cookies from "js-cookie";
 import { TbShoppingCart } from "react-icons/tb";
 import InViewWrapper from "./../componente-animate/InViewWrapper.tsx";
+import { AnimatePresence } from "framer-motion";
 
 const Header = () => {
 	const [visible, setHidden] = useState(true);
+	const [productMenu, setShowProductMenu] = useState(false);
 	const [y, setY] = useState(0);
 	const { status, data: session } = useSession();
 	const { state, dispatch } = useContext(Store);
@@ -32,6 +34,7 @@ const Header = () => {
 			const window = e.currentTarget;
 			if (y > window.scrollY) {
 				setHidden(true);
+				setShowProductMenu(false);
 			} else if (y < window.scrollY) {
 				setHidden(false);
 			}
@@ -61,9 +64,9 @@ const Header = () => {
 			}}
 			clasa={`${
 				visible ? "sticky" : "hidden"
-			} container  bg-textTrandafiri  top-0  z-40 px-4 border-fundalTrandafiri h-14 border-b-8`}>
-			<header>
-				<nav className="flex h-12 items-center px-4 justify-between shadow-md">
+			} container  bg-textTrandafiri  top-0 relative  z-40 px-4 border-fundalTrandafiri h-auto border-b-8`}>
+			<header className="flex flex-col ">
+				<nav className="flex h-12 items-center px-4 justify-between shadow-md z-10">
 					<Link href="/">
 						<a className="text-lg text-fundalTrandafiri font-bold hover:blur-xs">
 							RoseDimat
@@ -73,8 +76,7 @@ const Header = () => {
 						<Link href="/cart">
 							<a className="p-2 text-fundalTrandafiri ">
 								<div className="flex justify-center items-center hover:blur-xs ">
-									<span>Cart</span>
-									<TbShoppingCart className="ml-1" />
+									<TbShoppingCart />
 
 									{cartItemsCount > 0 && (
 										<span className="ml-1 rounded-full bg-red-600 px-2 text-xs font-bold text-white">
@@ -84,9 +86,11 @@ const Header = () => {
 								</div>
 							</a>
 						</Link>
-						<Link href="/produse">
-							<a className="p-2 text-roz hover:blur-xs">Produse</a>
-						</Link>
+						<button
+							onClick={() => setShowProductMenu(!productMenu)}
+							className="p-2 text-roz hover:blur-xs">
+							Produse{" "}
+						</button>
 
 						{status === "loading" ? (
 							"Loading"
@@ -136,6 +140,35 @@ const Header = () => {
 						)}
 					</div>
 				</nav>
+				{productMenu ? (
+					<InViewWrapper
+						keie="meniuProduse"
+						inView={{
+							opacity: 1,
+							y: 0,
+						}}
+						notInView={{
+							opacity: 0,
+							y: -10,
+						}}
+						tranzitie={{
+							duration: 1,
+						}}
+						clasa={
+							"absolute flex bg-fundalTrandafiri py-2 mt-14 top-0 left-0 right-0 px-4  w-full z-0"
+						}>
+						<ul className="flex px-4 items-center w-full justify-between overflow-x-hidden animate-move-x ">
+							<li>Apa de Trandafiri</li>
+							<li>Sirop de Trandafiri</li>
+							<li>Dulceata de Trandafiri</li>
+							<li>Miere de Albine Poliflora </li>
+							<li>Miere de Albine Salcam </li>
+							<li>Miere de Albine Tei </li>
+						</ul>{" "}
+					</InViewWrapper>
+				) : (
+					""
+				)}
 			</header>
 		</InViewWrapper>
 	);

@@ -1,7 +1,7 @@
 // component to animate when it is in view
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion"
 const InViewWrapper = ({
   children,
   inView,
@@ -9,14 +9,18 @@ const InViewWrapper = ({
   clasa,
   tranzitie,
   delay,
+ 
 }) => {
   const [isInView, setIsInView] = useState(false);
 
   return (
+
     <motion.div
-      initial={false}
+  
+    initial={false}
       // animated si not animated le adaugam in props ca
       animate={isInView ? inView : notInView}
+ 
       transition={tranzitie}
       onViewportEnter={() => {
         setTimeout(() => {
@@ -31,6 +35,8 @@ const InViewWrapper = ({
     >
       {children}
     </motion.div>
+
+    
   );
 };
 
