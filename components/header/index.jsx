@@ -10,6 +10,7 @@ import Cookies from "js-cookie";
 import { TbShoppingCart } from "react-icons/tb";
 import InViewWrapper from "./../componente-animate/InViewWrapper.tsx";
 import { AnimatePresence } from "framer-motion";
+import Carousel, { CarouselItem } from "../productCarousel";
 
 const Header = () => {
 	const [visible, setHidden] = useState(true);
@@ -157,14 +158,27 @@ const Header = () => {
 						clasa={
 							"absolute flex bg-fundalTrandafiri py-2 mt-14 top-0 left-0 right-0 px-4  w-full z-0"
 						}>
-						<ul className="flex px-4 items-center w-full justify-between overflow-x-hidden animate-move-x ">
-							<li>Apa de Trandafiri</li>
-							<li>Sirop de Trandafiri</li>
-							<li>Dulceata de Trandafiri</li>
-							<li>Miere de Albine Poliflora </li>
-							<li>Miere de Albine Salcam </li>
-							<li>Miere de Albine Tei </li>
-						</ul>{" "}
+						<Carousel>
+							<CarouselItem>
+								<div className="flex gap-6">
+									<p> Apa de Trandafiri </p> <p>Sirop de Trandafiri</p>{" "}
+								</div>
+							</CarouselItem>
+
+							<CarouselItem>
+								{" "}
+								<div className="flex gap-6">
+									<p> Dulceata de Trandafiri </p>{" "}
+									<p> Miere de Albine Poliflora</p>{" "}
+								</div>
+							</CarouselItem>
+							<CarouselItem>
+								{" "}
+								<div className="flex gap-6">
+									<p> Miere de Albine Salcam </p> <p>Miere de Albine Tei</p>{" "}
+								</div>
+							</CarouselItem>
+						</Carousel>
 					</InViewWrapper>
 				) : (
 					""
