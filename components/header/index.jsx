@@ -9,7 +9,7 @@ import DropdownLink from "../DropdownLink";
 import Cookies from "js-cookie";
 import { TbShoppingCart } from "react-icons/tb";
 import InViewWrapper from "./../componente-animate/InViewWrapper.tsx";
-import { AnimatePresence } from "framer-motion";
+
 import Carousel, { CarouselItem } from "../productCarousel";
 
 const Header = () => {

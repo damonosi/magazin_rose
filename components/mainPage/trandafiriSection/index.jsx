@@ -99,7 +99,7 @@ const TrandafiriSection = () => {
 						tranzitie={{
 							duration: 2,
 						}}
-						clasa={"   rounded relative p-6 w-1/2 "}>
+						clasa={"rounded relative p-6 w-1/2 "}>
 						<p className="">
 							Trandafirii au efect de tonifiere, înlătură oboseala şi anxietatea,
 							ajută inima şi curăţă pielea în profunzime.
@@ -207,7 +207,7 @@ const TrandafiriSection = () => {
 								duration: 1,
 							}}
 							clasa={
-								"  w-full flex items-center justify-center w-1/6 animate-bounce-slow"
+								"w-full flex items-center justify-center w-1/6 animate-ping-slow"
 							}
 							id="sageti"
 							delay={500}>

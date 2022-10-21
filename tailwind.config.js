@@ -18,28 +18,24 @@ module.exports = {
 			},
 		},
 		animation: {
-			"spin-slow": "spin 5s linear infinite",
-			"bounce-slow": "ping 5s linear infinite",
-			"move-x": "wave 15s linear infinite ",
+			"spin-slow": "spin 5s  infinite",
+			"ping-slow": "ping  5s  infinite",
 		},
-		keyframes: {
-			wave: {
-				"0%": { transform: "translateX(0px)" },
-				"10%": { transform: "translateX(10%)" },
-				"20%": { transform: "translateX(20%)" },
-				"30%": { transform: "translateX(30%)" },
-				"40%": { transform: " translateX(40%)" },
-				"50%": { transform: "translateX(50%)" },
-				"60%": { transform: "translateX(60%)" },
-				"100%": { transform: "translateX(100%) ", opacity: 0 },
-			},
-		},
+
 		blur: {
 			xs: "0.5px",
 		},
 	},
 	plugins: [],
 };
+
+
+
+
+
+
+
+
 
 
 

@@ -43,7 +43,7 @@ const Carousel = ({ children }) => {
 			<ul
 				className="whitespace-nowrap w-full transition-transform duration-300"
 				style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
-				{React.Children.map(children, (child, index) => {
+				{React.Children.map(children, (child) => {
 					return React.cloneElement(child, { width: "100%" });
 				})}
 			</ul>
@@ -56,7 +56,7 @@ const Carousel = ({ children }) => {
 					}}>
 					Prev
 				</button>
-				{React.Children.map(children, (child, index) => {
+				{React.Children.map(children, (index) => {
 					return (
 						<button
 							className={`${index === activeIndex ? "bg-black text-roz" : ""}`}
