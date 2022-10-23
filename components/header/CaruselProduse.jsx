@@ -17,6 +17,9 @@ const CaruselProduse = ({ closeProductMenu }) => {
 	if (!produseCarusel) {
 		return "Nu sunt produse de vanzare";
 	}
+	if (error) {
+		return "Eroare";
+	}
 
 	return (
 		<Carousel>
