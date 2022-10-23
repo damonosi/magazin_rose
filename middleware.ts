@@ -22,7 +22,7 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent) {
 name:session?.user?.name,
 email: session?.user?.email  ,
 image: session?.user?.image  ,
-isAdmin:await session?.user?.isAdmin? 'true':'false',
+isAdmin: session?.user?.isAdmin? 'true':'false',
   }
   
  console.log('este admin?',user.isAdmin)
