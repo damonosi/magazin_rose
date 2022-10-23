@@ -50,6 +50,7 @@ const CaruselProduse = ({ closeProductMenu }) => {
 														layout=""
 														width={80}
 														height={80}
+														alt={produs.name}
 													/>
 												</div>
 											</div>
