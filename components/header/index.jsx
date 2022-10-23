@@ -10,21 +10,27 @@ import Cookies from "js-cookie";
 import { TbShoppingCart } from "react-icons/tb";
 import InViewWrapper from "./../componente-animate/InViewWrapper.tsx";
 
-import Carousel, { CarouselItem } from "../productCarousel";
+import useOnclickOutside from "react-cool-onclickoutside";
+
+import CaruselProduse from "./CaruselProduse";
 
 const Header = () => {
 	const [visible, setHidden] = useState(true);
 	const [productMenu, setShowProductMenu] = useState(false);
+	const closeProductMenu = () => setShowProductMenu(false);
 	const [y, setY] = useState(0);
 	const { status, data: session } = useSession();
 	const { state, dispatch } = useContext(Store);
 	const { cart } = state;
-
 	const [cartItemsCount, setCartItemsCount] = useState(0);
+
 	useEffect(() => {
 		setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
 	}, [cart.cartItems]);
-
+	const ref = useOnclickOutside(() => {
+		console.log("click outside");
+		closeProductMenu();
+	});
 	const logoutClickHandler = () => {
 		Cookies.remove("cart");
 		dispatch({ type: "CART_RESET" });
@@ -66,7 +72,9 @@ const Header = () => {
 			clasa={`${
 				visible ? "sticky" : "hidden"
 			} container  bg-textTrandafiri  top-0 relative  z-40 px-4 border-fundalTrandafiri h-auto border-b-8`}>
-			<header className="flex flex-col ">
+			<header
+				ref={ref}
+				className="flex flex-col ">
 				<nav className="flex h-12 items-center px-4 justify-between shadow-md z-10">
 					<Link href="/">
 						<a className="text-lg text-fundalTrandafiri font-bold hover:blur-xs">
@@ -156,29 +164,9 @@ const Header = () => {
 							duration: 1,
 						}}
 						clasa={
-							"absolute flex bg-fundalTrandafiri py-2 mt-14 top-0 left-0 right-0 px-4  w-full z-0"
+							"absolute flex bg-fundalTrandafiri justify-center items-center py-2 mt-14 top-0 left-0 right-0 px-4  w-full  z-50 py-6"
 						}>
-						<Carousel>
-							<CarouselItem>
-								<div className="flex gap-6">
-									<p> Apa de Trandafiri </p> <p>Sirop de Trandafiri</p>{" "}
-								</div>
-							</CarouselItem>
-
-							<CarouselItem>
-								{" "}
-								<div className="flex gap-6">
-									<p> Dulceata de Trandafiri </p>{" "}
-									<p> Miere de Albine Poliflora</p>{" "}
-								</div>
-							</CarouselItem>
-							<CarouselItem>
-								{" "}
-								<div className="flex gap-6">
-									<p> Miere de Albine Salcam </p> <p>Miere de Albine Tei</p>{" "}
-								</div>
-							</CarouselItem>
-						</Carousel>
+						<CaruselProduse closeProductMenu={closeProductMenu} />
 					</InViewWrapper>
 				) : (
 					""

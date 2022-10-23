@@ -207,7 +207,7 @@ const TrandafiriSection = () => {
 								duration: 1,
 							}}
 							clasa={
-								"w-full flex items-center justify-center w-1/6 animate-ping-slow"
+								"w-full flex items-center justify-center w-1/6 animate-wiggle-ping"
 							}
 							id="sageti"
 							delay={500}>

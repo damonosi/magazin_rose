@@ -27,7 +27,7 @@ const InViewWrapper = ({
       onViewportLeave={() => {
         setIsInView(false);
       }}
-      id="titlu"
+      id="view-wrapper"
       className={clasa}
     >
       {children}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { FiArrowRightCircle, FiArrowLeftCircle } from "react-icons/fi";
 
 export const CarouselItem = ({ children, width }) => {
 	return (
@@ -26,7 +27,7 @@ const Carousel = ({ children }) => {
 			if (!paused) {
 				updateIndex(activeIndex + 1);
 			}
-		}, 2000);
+		}, 5000);
 
 		console.log(activeIndex);
 		return () => {
@@ -39,7 +40,7 @@ const Carousel = ({ children }) => {
 		<div
 			onMouseEnter={() => setPaused(true)}
 			onMouseLeave={() => setPaused(false)}
-			className="overflow-hidden w-full">
+			className=" flex items-center justify-center flex-col overflow-hidden max-w-2xl relative">
 			<ul
 				className="whitespace-nowrap w-full transition-transform duration-300"
 				style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
@@ -47,30 +48,22 @@ const Carousel = ({ children }) => {
 					return React.cloneElement(child, { width: "100%" });
 				})}
 			</ul>
-			<div className="flex justify-center">
+			<div>
 				<button
-					className="m-2"
+					className=" absolute left-0 top-1/2 transform  -translate-y-1/2"
 					onClick={() => {
 						updateIndex(activeIndex - 1);
 						console.log(activeIndex - 1);
 					}}>
-					Prev
+					<FiArrowLeftCircle />
 				</button>
-				{React.Children.map(children, (index) => {
-					return (
-						<button
-							className={`${index === activeIndex ? "bg-black text-roz" : ""}`}
-							onClick={() => updateIndex(index)}>
-							{index + 1}
-						</button>
-					);
-				})}
+
 				<button
-					className="m-2"
+					className=" absolute right-0 top-1/2 transform  -translate-y-1/2"
 					onClick={() => {
 						updateIndex(activeIndex + 1);
 					}}>
-					Next
+					<FiArrowRightCircle />
 				</button>
 			</div>
 		</div>
@@ -78,3 +71,18 @@ const Carousel = ({ children }) => {
 };
 
 export default Carousel;
+
+
+
+// adauga butoane index produse
+//   <div	id="index"	className="absolute bottom-0 left-1/2 transform  -translate-x-1/2">
+// {React.Children.map(children, (child, index) => {
+// 	return (
+// 		<button
+// 			className={`${index === activeIndex ? "bg-black text-roz" : ""}`}
+// 			onClick={() => updateIndex(index)}>
+// 			{index + 1}
+// 		</button>
+// 	);
+// })}
+//   </div>
