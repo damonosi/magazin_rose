@@ -75,7 +75,7 @@ const Header = () => {
 			<header
 				ref={ref}
 				className="flex flex-col ">
-				<nav className="flex h-12 items-center px-4 justify-between shadow-md z-10">
+				<nav className="flex h-12 items-center px-4 justify-between shadow-md ">
 					<Link href="/">
 						<a className="text-lg text-fundalTrandafiri font-bold hover:blur-xs">
 							RoseDimat
@@ -106,7 +106,7 @@ const Header = () => {
 						) : session?.user ? (
 							<Menu
 								as="div"
-								className="z-40 relative inline-block">
+								className="z-50 relative inline-block">
 								<Menu.Button className="text-yellow-600 hover:blur-xs">
 									{session.user.name}
 								</Menu.Button>
@@ -164,7 +164,7 @@ const Header = () => {
 							duration: 1,
 						}}
 						clasa={
-							"absolute flex bg-fundalTrandafiri justify-center items-center py-2 mt-14 top-0 left-0 right-0 px-4  w-full  z-50 py-6"
+							"absolute flex bg-fundalTrandafiri justify-center items-center py-2 mt-14 top-0 left-0 right-0 px-4  w-full  z-30 py-6"
 						}>
 						<CaruselProduse closeProductMenu={closeProductMenu} />
 					</InViewWrapper>

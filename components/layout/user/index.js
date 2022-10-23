@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Header from "./../../header/index";
 import Footer from "./../../footer/Footer";
 
+
 const UserLayout = ({ title, children }) => {
 	return (
 		<>

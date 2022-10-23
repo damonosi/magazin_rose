@@ -8,6 +8,5 @@ const DashboardPage = () => {
     </div>
   );
 };
-DashboardPage.Auth = true;
-DashboardPage.Admin = true;
+
 export default DashboardPage;

@@ -90,6 +90,6 @@ const PaginaComenzi = () => {
     </div>
   );
 };
-PaginaComenzi.Auth = true;
-PaginaComenzi.Admin = true;
+
+
 export default PaginaComenzi;

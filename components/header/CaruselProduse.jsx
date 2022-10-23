@@ -1,9 +1,11 @@
 import Carousel, { CarouselItem } from "../productCarousel";
 import Image from "next/image";
 import useSWR from "swr";
-import Spinner from "../spinner/Spinner";
+
 import InViewWrapper from "./../componente-animate/InViewWrapper.tsx";
 import Link from "next/link";
+
+
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -12,13 +14,10 @@ const CaruselProduse = ({ closeProductMenu }) => {
 		"/api/dashboard/produse/produse-carusel",
 		fetcher,
 	);
-	if (!produseCarusel)
-		return (
-			<div>
-				<Spinner />
-			</div>
-		);
-	if (error) return "no data....";
+	if (!produseCarusel) {
+		return "Nu sunt produse de vanzare";
+	}
+
 	return (
 		<Carousel>
 			{produseCarusel.map((produs, index) => {
