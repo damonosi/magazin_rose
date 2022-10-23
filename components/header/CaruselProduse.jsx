@@ -23,7 +23,7 @@ const CaruselProduse = ({ closeProductMenu }) => {
 		<Carousel>
 			{produseCarusel.map((produs, index) => {
 				return (
-					<CarouselItem id={index}>
+					<CarouselItem key={index}>
 						<InViewWrapper
 							keie="meniuProduse"
 							inView={{
