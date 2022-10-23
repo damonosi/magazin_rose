@@ -1,6 +1,6 @@
 import Product from "../../../../models/Product";
 import db from "../../../../utils/db";
-import { getSession } from "next-auth/react";
+
 
 const handler = async (req, res) => {
 	db.connect();
