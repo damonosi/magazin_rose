@@ -2,6 +2,13 @@ import type { NextFetchEvent, NextRequest } from 'next/server';
 import { getSession } from 'next-auth/react';
 import { NextResponse } from 'next/server';
 
+interface User {
+	name?: string | null | undefined;
+	 email?: string | null | undefined;
+	  image?: string | null | undefined;
+	  isAdmin?: string | null | undefined;
+  }
+
 export async function middleware(req: NextRequest, ev: NextFetchEvent) {
   const requestForNextAuth = {
     headers: {
@@ -11,7 +18,8 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent) {
 
   const session = await getSession({ req: requestForNextAuth });
   const user=await session?.user;
-  user.isAdmin=await session?.user?.isAdmin? 'true':'false';
+  
+  user.isAdmin:Boolean=await session?.user?.isAdmin? 'true':'false';
   
   
   if (!session) {
