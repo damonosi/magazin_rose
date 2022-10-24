@@ -1,7 +1,7 @@
 import { getSession } from "next-auth/react";
 import { NextResponse } from "next/server";
 
-export async function middleware(req, ev) {
+export async function middleware(req) {
 	const requestForNextAuth = {
 		headers: {
 			cookie: req.headers.get("cookie"),
