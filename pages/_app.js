@@ -69,12 +69,11 @@ function Admin({ children }) {
 		}
 	if (session?.user?.isAdmin === true) {
 		return children;
-	} else {
-		console.log("trebuie sa fii admin!");
-	}
+	} 
 }
 
 export default MyApp;
+
 
 
 

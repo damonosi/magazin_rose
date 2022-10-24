@@ -91,5 +91,6 @@ const PaginaComenzi = () => {
   );
 };
 
-
+PaginaComenzi.Auth = true;
+PaginaComenzi.Admin = true;
 export default PaginaComenzi;
