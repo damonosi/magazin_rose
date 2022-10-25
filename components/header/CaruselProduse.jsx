@@ -4,8 +4,7 @@ import useSWR from "swr";
 
 import InViewWrapper from "./../componente-animate/InViewWrapper.tsx";
 import Link from "next/link";
-
-
+import Spinner from "./../spinner/Spinner";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -14,11 +13,8 @@ const CaruselProduse = ({ closeProductMenu }) => {
 		"/api/dashboard/produse/produse-carusel",
 		fetcher,
 	);
-	if (!produseCarusel) {
-		return "Nu sunt produse de vanzare";
-	}
-	if (error) {
-		return "Eroare";
+	if (!produseCarusel || error) {
+		return <Spinner />;
 	}
 
 	return (
