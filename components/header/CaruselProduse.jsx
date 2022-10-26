@@ -14,11 +14,8 @@ const CaruselProduse = ({ closeProductMenu }) => {
 		fetcher,
 	);
 
-	if (!produseCarusel) {
+	if (!produseCarusel || error) {
 		return <Spinner />;
-	}
-	if (error) {
-		return <p>{error}</p>;
 	}
 
 	return (

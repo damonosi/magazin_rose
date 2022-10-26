@@ -6,7 +6,7 @@ const handler = async (req, res) => {
 	db.connect();
 	const toateProdusele = await Product.find().lean();
 	let produseCarusel = [];
-	
+
 	toateProdusele.map((produsM) => {
 		const produsNou = {
 			name: produsM.name,
@@ -18,8 +18,7 @@ const handler = async (req, res) => {
 		};
 		produseCarusel.push(produsNou);
 	});
-	
-	
+
 	db.disconnect();
 	res.send(produseCarusel);
 };
