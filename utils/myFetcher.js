@@ -1,15 +1,17 @@
+import axios from "axios";
+
 export async function fetcher(resource) {
 	let result;
 	try {
-		result = await fetch(resource);
+		result = await axios.get(resource).then((r) => r.data);
 	} catch (e) {
 		console.log("***** Problem with fetch that results in an exception");
 		console.error(e);
 		throw new Error("Invalid Response");
 	}
-	if (result.ok) {
+	if (result) {
 		try {
-			return await result.json();
+			return await result;
 		} catch (e) {
 			console.log("***** Problem with JSON payload", e);
 			throw "Result OK but JSON borked";

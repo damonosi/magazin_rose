@@ -10,7 +10,7 @@ import Spinner from "./../spinner/Spinner";
 
 const CaruselProduse = ({ closeProductMenu }) => {
 	const { data: produseCarusel, error } = useSWR("/api/dashboard/produse/produse-carusel");
-
+	console.log(produseCarusel);
 	if (!produseCarusel || error) {
 		return <Spinner />;
 	}
