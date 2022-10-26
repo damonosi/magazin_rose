@@ -26,6 +26,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 							refreshInterval: 10000,
 							fetcher: myFetcher,
 							refreshWhenHidden: false,
+							revalidateOnFocus: false,
 						}}>
 						{Component.Auth ? (
 							<Auth>
@@ -81,6 +82,8 @@ function Admin({ children }) {
 }
 
 export default MyApp;
+
+
 
 
 
