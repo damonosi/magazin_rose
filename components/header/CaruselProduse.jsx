@@ -6,16 +6,10 @@ import InViewWrapper from "./../componente-animate/InViewWrapper.tsx";
 import Link from "next/link";
 import Spinner from "./../spinner/Spinner";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
 
 const CaruselProduse = ({ closeProductMenu }) => {
-	const { data: produseCarusel, error } = useSWR(
-		"/api/dashboard/produse/produse-carusel",
-		fetcher,
-		{
-			revalidateOnFocus: false,
-		},
-	);
+	const { data: produseCarusel, error } = useSWR("/api/dashboard/produse/produse-carusel");
 
 	if (!produseCarusel || error) {
 		return <Spinner />;

@@ -7,12 +7,13 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import "../styles/globals.css";
 import { StoreProvider } from "../utils/Store";
 import Spinner from "./../components/spinner/Spinner";
-
+import { SWRConfig } from "swr";
 import "nprogress/nprogress.css";
 
 import AdminLayout from "../components/layout/dashboard";
 import UserLayout from "../components/layout/user";
 import NextNProgress from "nextjs-progressbar";
+import { fetcher as myFetcher } from "../utils/myFetcher";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 	return (
@@ -20,25 +21,33 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 			<StoreProvider>
 				<NextNProgress />
 				<PayPalScriptProvider deferLoading={true}>
-					{Component.Auth ? (
-						<Auth>
-							{Component.Admin ? (
-								<Admin>
-									<AdminLayout>
+					<SWRConfig
+						value={{
+							refreshInterval: 10000,
+							fetcher: myFetcher,
+							refreshWhenHidden: false,
+						}}>
+						{Component.Auth ? (
+							<Auth>
+								{Component.Admin ? (
+									<Admin>
+										<AdminLayout>
+											<Component {...pageProps} />
+										</AdminLayout>
+									</Admin>
+								) : (
+									<UserLayout>
 										<Component {...pageProps} />
-									</AdminLayout>
-								</Admin>
-							) : (
-								<UserLayout>
-									<Component {...pageProps} />
-								</UserLayout>
-							)}
-						</Auth>
-					) : (
-						<UserLayout>
-							<Component {...pageProps} />
-						</UserLayout>
-					)}
+									</UserLayout>
+								)}
+							</Auth>
+						) : (
+							<UserLayout>
+								<Component {...pageProps} />
+							</UserLayout>
+						)}
+						  
+					</SWRConfig>
 				</PayPalScriptProvider>
 			</StoreProvider>
 		</SessionProvider>
@@ -73,6 +82,10 @@ function Admin({ children }) {
 }
 
 export default MyApp;
+
+
+
+
 
 
 
