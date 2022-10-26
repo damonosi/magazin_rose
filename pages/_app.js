@@ -69,10 +69,14 @@ function Admin({ children }) {
 		}
 	if (session?.user?.isAdmin === true) {
 		return children;
-	} 
+	}
 }
 
 export default MyApp;
+
+
+
+
 
 
 

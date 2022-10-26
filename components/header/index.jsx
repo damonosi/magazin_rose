@@ -18,6 +18,26 @@ import { Link as ScrollLink } from "react-scroll";
 import HoneyComb from "../../public/images/honeycomb.png";
 import DamaskRose from "../../public/images/damascRose.png";
 
+
+export async function getStaticProps() {
+	// `getStaticProps` is executed on the server side.
+	let produsDefault = {
+		name: "apa de trandafiri",
+		category: "produse trandafiri",
+		image: "https://res.cloudinary.com/dyfedllac/image/upload/v1665304769/rose-dimat/apa-organica-trandafiri_ttn3z4.png",
+		price: 20,
+		slug: "apa-de-trandafiri",
+		cantitate: 100,
+	};
+	return {
+		props: {
+			fallback: {
+				"/api/dashboard/produse/produse-carusel": produsDefault,
+			},
+		},
+	};
+}
+
 const Header = () => {
 	const [visible, setHidden] = useState(true);
 	const [productMenu, setShowProductMenu] = useState(false);
@@ -206,6 +226,7 @@ const Header = () => {
 								</ScrollLink>{" "}
 							</li>
 						</ul>
+
 						<CaruselProduse closeProductMenu={closeProductMenu} />
 					</InViewWrapper>
 				) : (

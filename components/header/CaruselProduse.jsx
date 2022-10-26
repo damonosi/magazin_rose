@@ -9,12 +9,17 @@ import Spinner from "./../spinner/Spinner";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const CaruselProduse = ({ closeProductMenu }) => {
-	const { data: produseCarusel, error } = useSWR(
-		"/api/dashboard/produse/produse-carusel",
-		fetcher,
-	);
-	if (!produseCarusel || error) {
+	const {
+		data: produseCarusel,
+		error,
+		isValidating,
+	} = useSWR("/api/dashboard/produse/produse-carusel", fetcher);
+
+	if (isValidating) {
 		return <Spinner />;
+	}
+	if (error) {
+		return <p>{error}</p>;
 	}
 
 	return (
