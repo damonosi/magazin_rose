@@ -24,8 +24,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 					<SWRConfig
 						value={{
 							fetcher: myFetcher,
-							refreshWhenHidden: false,
-							revalidateOnFocus: false,
 						}}>
 						{Component.Auth ? (
 							<Auth>
@@ -81,6 +79,7 @@ function Admin({ children }) {
 }
 
 export default MyApp;
+
 
 
 
