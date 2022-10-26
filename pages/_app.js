@@ -46,7 +46,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 								<Component {...pageProps} />
 							</UserLayout>
 						)}
-						  
 					</SWRConfig>
 				</PayPalScriptProvider>
 			</StoreProvider>
@@ -82,6 +81,7 @@ function Admin({ children }) {
 }
 
 export default MyApp;
+
 
 
 
