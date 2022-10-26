@@ -1,13 +1,9 @@
 import Product from "../../../../models/Product";
 import db from "../../../../utils/db";
 
-
-const handler = async (req, res) => {
-	db.connect();
-	const toateProdusele = await Product.find().lean();
+const addItemsToCarusel = async (toateProdusele) => {
 	let produseCarusel = [];
-
-	toateProdusele.map((produsM) => {
+	await toateProdusele.map((produsM) => {
 		const produsNou = {
 			name: produsM.name,
 			category: produsM.category,
@@ -16,8 +12,17 @@ const handler = async (req, res) => {
 			slug: produsM.slug,
 			cantitate: produsM.cantitate,
 		};
+
 		produseCarusel.push(produsNou);
 	});
+
+	return produseCarusel;
+};
+
+const handler = async (req, res) => {
+	db.connect();
+	const toateProdusele = await Product.find().lean();
+	const produseCarusel = await addItemsToCarusel(toateProdusele);
 
 	db.disconnect();
 	res.send(produseCarusel);
