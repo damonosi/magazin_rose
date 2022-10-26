@@ -23,7 +23,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 				<PayPalScriptProvider deferLoading={true}>
 					<SWRConfig
 						value={{
-							refreshInterval: 10000,
 							fetcher: myFetcher,
 							refreshWhenHidden: false,
 							revalidateOnFocus: false,
@@ -82,6 +81,7 @@ function Admin({ children }) {
 }
 
 export default MyApp;
+
 
 
 
