@@ -35,12 +35,14 @@ const CaruselProduse = ({ closeProductMenu }) => {
 							tranzitie={{
 								duration: 2,
 							}}
-							clasa={"w-full"}>
-							<div className="flex border flex-col justify-center items-center w-full h-auto">
+							clasa={"flex items-center justify-center w-full"}>
+							<div
+								className="flex  flex-col border  items-center w-full  h-auto"
+								id="produs-carusel">
 								<h2 className="">{produs.name}</h2>
 								<Link href={`/produse/${produs.slug}`}>
 									<a onClick={() => closeProductMenu()}>
-										<div className="flex justify-center  border gap-2 p-6  ">
+										<div className="flex  w-full p-6 gap-16 ">
 											<div className="flex flex-col  p-2 gap-4 text-center">
 												<div className="flex  items-center justify-center">
 													<Image

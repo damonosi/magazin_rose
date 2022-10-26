@@ -27,9 +27,8 @@ const Carousel = ({ children }) => {
 			if (!paused) {
 				updateIndex(activeIndex + 1);
 			}
-		}, 5000);
+		}, 6000);
 
-		console.log(activeIndex);
 		return () => {
 			if (interval) {
 				clearInterval(interval);
@@ -40,9 +39,9 @@ const Carousel = ({ children }) => {
 		<div
 			onMouseEnter={() => setPaused(true)}
 			onMouseLeave={() => setPaused(false)}
-			className=" flex items-center justify-center flex-col overflow-hidden max-w-2xl relative">
+			className=" flex border items-center justify-center flex-col overflow-hidden max-w-md p-6 relative">
 			<ul
-				className="whitespace-nowrap w-full transition-transform duration-300"
+				className="whitespace-nowrap w-full transition-transform duration-1000"
 				style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
 				{React.Children.map(children, (child) => {
 					return React.cloneElement(child, { width: "100%" });
@@ -50,16 +49,15 @@ const Carousel = ({ children }) => {
 			</ul>
 			<div>
 				<button
-					className=" absolute left-0 top-1/2 transform  -translate-y-1/2"
+					className=" absolute left-0 top-1/2 transform  -translate-y-1/2 ml-6"
 					onClick={() => {
 						updateIndex(activeIndex - 1);
-						console.log(activeIndex - 1);
 					}}>
 					<FiArrowLeftCircle />
 				</button>
 
 				<button
-					className=" absolute right-0 top-1/2 transform  -translate-y-1/2"
+					className=" absolute right-0 top-1/2 transform  -translate-y-1/2 mr-6"
 					onClick={() => {
 						updateIndex(activeIndex + 1);
 					}}>

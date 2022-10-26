@@ -9,10 +9,14 @@ import DropdownLink from "../DropdownLink";
 import Cookies from "js-cookie";
 import { TbShoppingCart } from "react-icons/tb";
 import InViewWrapper from "./../componente-animate/InViewWrapper.tsx";
-
+import CaruselProduse from "./CaruselProduse";
+import Image from "next/image";
 import useOnclickOutside from "react-cool-onclickoutside";
 
-import CaruselProduse from "./CaruselProduse";
+import { Link as ScrollLink } from "react-scroll";
+
+import HoneyComb from "../../public/images/honeycomb.png";
+import DamaskRose from "../../public/images/damascRose.png";
 
 const Header = () => {
 	const [visible, setHidden] = useState(true);
@@ -164,8 +168,44 @@ const Header = () => {
 							duration: 1,
 						}}
 						clasa={
-							"absolute flex bg-fundalTrandafiri justify-center items-center py-2 mt-14 top-0 left-0 right-0 px-4  w-full  z-30 py-6"
+							"absolute flex  bg-fundalTrandafiri justify-between px-80 items-center py-2 mt-14 top-0 left-0 right-0 px-4  w-full  z-30 py-6"
 						}>
+						<ul className="flex flex-col w-44 gap-4 mb-6 border p-2 px-6">
+							<h1>Harta</h1>
+							<li>
+								{" "}
+								<ScrollLink
+									to="sectiune-apicole"
+									spy={true}
+									smooth={true}
+									offset={50}
+									duration={1000}
+									className="flex justify-between items-center cursor-pointer hover:blur-xs">
+									apicole{" "}
+									<Image
+										src={HoneyComb}
+										width={40}
+										height={40}
+									/>{" "}
+								</ScrollLink>{" "}
+							</li>
+							<li>
+								<ScrollLink
+									to="sectiune-trandafiri"
+									spy={true}
+									smooth={true}
+									offset={50}
+									duration={1000}
+									className="flex justify-between items-center cursor-pointer hover:blur-xs">
+									trandafiri{" "}
+									<Image
+										src={DamaskRose}
+										width={40}
+										height={40}
+									/>{" "}
+								</ScrollLink>{" "}
+							</li>
+						</ul>
 						<CaruselProduse closeProductMenu={closeProductMenu} />
 					</InViewWrapper>
 				) : (

@@ -15,7 +15,9 @@ import Link from "next/link";
 
 const TrandafiriSection = () => {
 	return (
-		<section className="flex z-20 flex-col relative bg-fundalTrandafiri text-textTrandafiri py-20 min-h-screen align-center justify-center w-full tracking-widest ">
+		<section
+			className="flex z-20 flex-col relative bg-fundalTrandafiri text-textTrandafiri py-20 min-h-screen align-center justify-center w-full tracking-widest "
+			id="sectiune-trandafiri">
 			<div
 				className="px-10"
 				id="padding-titlu-trandafiri">
