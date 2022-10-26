@@ -12,6 +12,9 @@ const CaruselProduse = ({ closeProductMenu }) => {
 	const { data: produseCarusel, error } = useSWR(
 		"/api/dashboard/produse/produse-carusel",
 		fetcher,
+		{
+			revalidateOnFocus: false,
+		},
 	);
 
 	if (!produseCarusel || error) {
