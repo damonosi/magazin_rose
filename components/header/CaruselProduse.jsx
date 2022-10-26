@@ -13,7 +13,11 @@ const CaruselProduse = ({ closeProductMenu }) => {
 		data: produseCarusel,
 		error,
 		isValidating,
-	} = useSWR("/api/dashboard/produse/produse-carusel");
+	} = useSWR("/api/dashboard/produse/produse-carusel", {
+		revalidateIfStale: false,
+		revalidateOnFocus: false,
+		revalidateOnReconnect: false,
+	});
 	console.log(produseCarusel);
 	if (!produseCarusel) {
 		return <Spinner />;

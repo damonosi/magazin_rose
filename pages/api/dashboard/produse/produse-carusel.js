@@ -25,7 +25,12 @@ const handler = async (req, res) => {
 	const produseCarusel = await addItemsToCarusel(toateProdusele);
 
 	db.disconnect();
-	res.send(produseCarusel);
+	if (!produseCarusel) {
+		res.send("Nu sunt produse");
+	} else {
+		res.send(produseCarusel);
+	}
+	
 };
 
 export default handler;
