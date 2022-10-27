@@ -5,7 +5,10 @@ const handler = async (req, res) => {
 	await db.connect();
 	const toateProdusele = await Product.find().lean();
 	db.disconnect();
-	res.send(toateProdusele);
+	if (toateProdusele) {
+		res.send(toateProdusele);
+	}
+	
 };
 
 export default handler;
