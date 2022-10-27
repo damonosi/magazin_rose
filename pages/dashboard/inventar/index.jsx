@@ -3,19 +3,12 @@ import useSWR from "swr";
 import Spinner from "../../../components/spinner/Spinner";
 import Image from "next/image";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
 
 const PaginaInventar = () => {
-  const { data, error } = useSWR(
-    "/api/dashboard/produse/toate-produsele",
-    fetcher,
-  );
+  const { data, error } = useSWR("/api/dashboard/produse/toate-produsele");
   if (!data)
-    return (
-      <div>
-        <Spinner />
-      </div>
-    );
+    return <Spinner />;
   if (error) return "no data....";
   return (
     <div className=" pt-10 grid h-auto  gap-24 grid-cols-2">

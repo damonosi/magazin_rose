@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export async function fetcher(resource) {
 	let result;
 	try {

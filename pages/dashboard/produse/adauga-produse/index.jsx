@@ -8,32 +8,31 @@ import Select from "react-select";
 const PaginaProduse = () => {
   const { handleSubmit, register, reset, control } = useForm();
   const submitHandler = async ({
-    name,
-    slug,
-    category,
-    image,
-    price,
-    cantitate,
-
-    countInStock,
-    description,
+		name,
+		slug,
+		category,
+		image,
+		price,
+		cantitate,
+		countInStock,
+		description,
   }) => {
-    try {
-      await axios.post("/api/dashboard/produse/adauga-produs", {
-        name,
-        slug,
-        category,
-        image,
-        price,
-        cantitate,
-        countInStock,
-        description,
-      });
-      toast.success("Ai adaugat un produs nou");
-    } catch (err) {
-      console.log(getError(err));
-    }
-    reset();
+		try {
+			await axios.post("/api/dashboard/produse/adauga-produs", {
+				name,
+				slug,
+				category,
+				image,
+				price,
+				cantitate,
+				countInStock,
+				description,
+			});
+			toast.success("Ai adaugat un produs nou");
+		} catch (err) {
+			console.log(getError(err));
+		}
+		reset();
   };
 
   const options = [
