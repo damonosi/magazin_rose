@@ -17,9 +17,8 @@ import { Link as ScrollLink } from "react-scroll";
 
 import HoneyComb from "../../public/images/honeycomb.png";
 import DamaskRose from "../../public/images/damascRose.png";
-
-
-
+import PrefetchNavItem from "./../prefetcher/PrefetcherLink";
+import { getNrComenzi } from "../../utils/myFetcher";
 
 const Header = () => {
 	const [visible, setHidden] = useState(true);
@@ -87,6 +86,7 @@ const Header = () => {
 							RoseDimat
 						</a>
 					</Link>
+
 					<div className="flex justify-center items-center">
 						<Link href="/cart">
 							<a className="p-2 text-fundalTrandafiri ">
@@ -126,11 +126,12 @@ const Header = () => {
 										</DropdownLink>
 									</Menu.Item>
 									<Menu.Item>
-										<DropdownLink
+										<PrefetchNavItem
 											href="/dashboard"
-											className="dropdown-link">
+											className="dropdown-link"
+											prepare={() => getNrComenzi()}>
 											Dashboard
-										</DropdownLink>
+										</PrefetchNavItem>
 									</Menu.Item>
 									<Menu.Item>
 										<DropdownLink

@@ -13,7 +13,7 @@ import DropdownLink from "../../DropdownLink";
 import useSWR from "swr";
 import Spinner from "../../spinner/Spinner";
 import PrefetchNavItem from "./../../prefetcher/PrefetcherLink";
-import { getNrComenzi, getUsers, getProduseInventar } from "./../../../utils/myFetcher";
+import { getUsers, getProduseInventar, getComenzi } from "./../../../utils/myFetcher";
 
 const AsideMenu = () => {
 	const handleLogOut = (e) => {
@@ -23,7 +23,7 @@ const AsideMenu = () => {
 	};
 
 	const { data, error } = useSWR("/api/dashboard/comenzi/nr-comenzi");
-	if (!data) return <Spinner />;
+
 	if (error) return "no data....";
 	const iconStyle = { fontSize: "30px" };
 	return (
@@ -35,16 +35,20 @@ const AsideMenu = () => {
 					<li>
 						<PrefetchNavItem
 							href="/dashboard/comenzi"
-							prepare={() => getNrComenzi()}>
+							prepare={() => getComenzi()}>
 							<div className="flex flex-row justify-between align-center  text-left w-full relative hover:bg-gray-200 pt-4 pb-4 pl-1 pr-3 ">
 								<div className="flex flex-row justify-between align-center items-center h-auto w-full pl-1">
 									<span className="flex-1  whitespace-nowrap">Comenzi</span>
 									<MdPendingActions style={iconStyle} />
 								</div>
 
-								<span className="absolute font-serif bg-red-400  rounded-full text-xs top-0 right-0 p-1">
-									{data}
-								</span>
+								{!data ? (
+									<Spinner />
+								) : (
+									<span className="absolute font-serif bg-red-400  rounded-full text-xs top-0 right-0 p-1">
+										{data}{" "}
+									</span>
+								)}
 							</div>
 						</PrefetchNavItem>
 					</li>

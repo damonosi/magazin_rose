@@ -6,8 +6,9 @@ export default function PrefetchNavItem({ href, children, prepare, className }) 
 			<a
 				className={className}
 				onMouseEnter={() => {
-					console.log("oreparing");
+					
 					prepare;
+					console.log("oreparing");
 				}}>
 				{children}
 			</a>

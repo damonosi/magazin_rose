@@ -31,6 +31,9 @@ export function getUsers() {
 export function getComenzi() {
 	return fetchAndCache("/api/dashboard/comenzi");
 }
+export function getNrComenzi() {
+	return fetchAndCache("/api/dashboard/comenzi/nr-comenzi");
+}
 export function getProduseInventar() {
 	return fetchAndCache("/api/dashboard/inventar");
 }
