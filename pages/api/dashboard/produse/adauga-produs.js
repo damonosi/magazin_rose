@@ -20,7 +20,7 @@ const handler = async (req, res) => {
     countInStock,
     description,
   } = req.body;
-  db.connect();
+  await db.connect();
   const produsNou = new Product({
     name,
     slug,

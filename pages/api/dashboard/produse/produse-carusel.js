@@ -20,7 +20,7 @@ const addItemsToCarusel = async (toateProdusele) => {
 };
 
 const handler = async (req, res) => {
-	db.connect();
+	await db.connect();
 	const toateProdusele = await Product.find().lean();
 	const produseCarusel = await addItemsToCarusel(toateProdusele);
 

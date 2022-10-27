@@ -9,7 +9,7 @@ const handler = async (req, res) => {
   }
   if (session.user.isAdmin === true) {
     const idUser = await req.body.idUtilizator;
-    db.connect();
+    await db.connect();
     const utilizator = await User.findByIdAndDelete(idUser);
 
     db.disconnect();

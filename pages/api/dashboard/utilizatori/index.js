@@ -2,7 +2,7 @@ import User from "./../../../../models/User";
 import db from "./../../../../utils/db";
 
 const handler = async (req, res) => {
-	db.connect();
+	await db.connect();
 	const utilizatori = await User.find().lean();
 
 	db.disconnect();
