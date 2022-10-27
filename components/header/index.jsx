@@ -20,6 +20,7 @@ import DamaskRose from "../../public/images/damascRose.png";
 
 
 
+
 const Header = () => {
 	const [visible, setHidden] = useState(true);
 	const [productMenu, setShowProductMenu] = useState(false);
@@ -34,7 +35,6 @@ const Header = () => {
 		setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
 	}, [cart.cartItems]);
 	const ref = useOnclickOutside(() => {
-		console.log("click outside");
 		closeProductMenu();
 	});
 	const logoutClickHandler = () => {
@@ -101,6 +101,7 @@ const Header = () => {
 								</div>
 							</a>
 						</Link>
+
 						<button
 							onClick={() => setShowProductMenu(!productMenu)}
 							className="p-2 text-roz hover:blur-xs">

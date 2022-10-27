@@ -12,8 +12,8 @@ import { Menu } from "@headlessui/react";
 import DropdownLink from "../../DropdownLink";
 import useSWR from "swr";
 import Spinner from "../../spinner/Spinner";
-
-
+import PrefetchNavItem from "./../../prefetcher/PrefetcherLink";
+import { getNrComenzi, getUsers, getProduseInventar } from "./../../../utils/myFetcher";
 
 const AsideMenu = () => {
 	const handleLogOut = (e) => {
@@ -21,6 +21,7 @@ const AsideMenu = () => {
 
 		signOut({ callbackUrl: "/auth/login" });
 	};
+
 	const { data, error } = useSWR("/api/dashboard/comenzi/nr-comenzi");
 	if (!data) return <Spinner />;
 	if (error) return "no data....";
@@ -32,20 +33,20 @@ const AsideMenu = () => {
 			<div className=" py-4 px-3 bg-gray-50 rounded h-fit ">
 				<ul className="space-y-4 relative">
 					<li>
-						<Link href="/dashboard/comenzi">
-							<a className="">
-								<div className="flex flex-row justify-between align-center  text-left w-full relative hover:bg-gray-200 pt-4 pb-4 pl-1 pr-3 ">
-									<div className="flex flex-row justify-between align-center items-center h-auto w-full pl-1">
-										<span className="flex-1  whitespace-nowrap">Comenzi</span>
-										<MdPendingActions style={iconStyle} />
-									</div>
-
-									<span className="absolute font-serif bg-red-400  rounded-full text-xs top-0 right-0 p-1">
-										{data}
-									</span>
+						<PrefetchNavItem
+							href="/dashboard/comenzi"
+							prepare={() => getNrComenzi()}>
+							<div className="flex flex-row justify-between align-center  text-left w-full relative hover:bg-gray-200 pt-4 pb-4 pl-1 pr-3 ">
+								<div className="flex flex-row justify-between align-center items-center h-auto w-full pl-1">
+									<span className="flex-1  whitespace-nowrap">Comenzi</span>
+									<MdPendingActions style={iconStyle} />
 								</div>
-							</a>
-						</Link>
+
+								<span className="absolute font-serif bg-red-400  rounded-full text-xs top-0 right-0 p-1">
+									{data}
+								</span>
+							</div>
+						</PrefetchNavItem>
 					</li>
 					<li>
 						<Link href="/">
@@ -69,15 +70,16 @@ const AsideMenu = () => {
 							</Menu.Button>
 							<Menu.Items className="absolute  bg-white origin-top-right shadow-lg w-full overflow-visible">
 								<Menu.Item>
-									<DropdownLink
+									<PrefetchNavItem
 										className="dropdown-link "
-										href="/dashboard/inventar">
+										href="/dashboard/inventar"
+										prepare={() => getProduseInventar()}>
 										<div className="flex flex-row justify-between items-center w-full">
 											<MdOutlineInventory style={iconStyle} />
 
 											<span> Inventar</span>
 										</div>
-									</DropdownLink>
+									</PrefetchNavItem>
 								</Menu.Item>
 								<Menu.Item>
 									<DropdownLink
@@ -100,14 +102,14 @@ const AsideMenu = () => {
 						</Menu>
 					</li>
 					<li>
-						<Link href="/dashboard/utilizatori">
-							<a>
-								<div className="flex flex-row justify-between items-center w-full hover:bg-gray-200 p-4 pl-1 pr-1 ">
-									<span className="flex-1  whitespace-nowrap">Utilizatori</span>
-									<BiUser style={iconStyle} />
-								</div>
-							</a>
-						</Link>
+						<PrefetchNavItem
+							href="/dashboard/utilizatori"
+							prepare={() => getUsers()}>
+							<div className="flex flex-row justify-between items-center w-full hover:bg-gray-200 p-4 pl-1 pr-1 ">
+								<span className="flex-1  whitespace-nowrap">Utilizatori</span>
+								<BiUser style={iconStyle} />
+							</div>
+						</PrefetchNavItem>
 					</li>
 					<li>
 						<button

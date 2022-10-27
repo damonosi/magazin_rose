@@ -19,7 +19,7 @@ export default function PlaceOrderScreen() {
   const itemsPrice = cartItems.reduce((a, c) => a + c.quantity * c.price, 0);
   const shippingPrice = itemsPrice > 200 ? 0 : 15;
   const taxPrice = itemsPrice * 0.15;
-  console.log(taxPrice);
+
 
   const totalPrice = itemsPrice + shippingPrice + taxPrice;
   useEffect(() => {

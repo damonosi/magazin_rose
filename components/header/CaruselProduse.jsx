@@ -18,7 +18,7 @@ const CaruselProduse = ({ closeProductMenu }) => {
 		revalidateOnFocus: false,
 		revalidateOnReconnect: false,
 	});
-	console.log(produseCarusel);
+
 	if (!produseCarusel) {
 		return <Spinner />;
 	}
