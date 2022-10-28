@@ -11,9 +11,10 @@ import Link from "next/link";
 import { Menu } from "@headlessui/react";
 import DropdownLink from "../../DropdownLink";
 import useSWR from "swr";
-import Spinner from "../../spinner/Spinner";
+
 import PrefetchNavItem from "./../../prefetcher/PrefetcherLink";
 import { getUsers, getProduseInventar, getComenzi } from "./../../../utils/myFetcher";
+import Spinner from "./../../spinner/Spinner";
 
 const AsideMenu = () => {
 	const handleLogOut = (e) => {
@@ -42,13 +43,9 @@ const AsideMenu = () => {
 									<MdPendingActions style={iconStyle} />
 								</div>
 
-								{!data ? (
-									<Spinner />
-								) : (
-									<span className="absolute font-serif bg-red-400  rounded-full text-xs top-0 right-0 p-1">
-										{data}{" "}
-									</span>
-								)}
+								<span className="absolute w-6 h-6 font-serif bg-red-400 flex items-center justify-center rounded-full text-xs top-0 right-0 p-1">
+									{!data ? <Spinner /> : <span>{data}</span>}
+								</span>
 							</div>
 						</PrefetchNavItem>
 					</li>

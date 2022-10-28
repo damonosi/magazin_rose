@@ -8,6 +8,7 @@ import Spinner from "./../spinner/Spinner";
 
 
 
+
 const CaruselProduse = ({ closeProductMenu }) => {
 	const {
 		data: produseCarusel,
@@ -20,7 +21,12 @@ const CaruselProduse = ({ closeProductMenu }) => {
 	});
 
 	if (!produseCarusel) {
-		return <Spinner />;
+		return (
+			<div className="w-16">
+				{" "}
+				<Spinner />
+			</div>
+		);
 	}
 	if (isValidating) {
 		return <Spinner />;

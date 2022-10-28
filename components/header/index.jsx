@@ -172,7 +172,7 @@ const Header = () => {
 							duration: 1,
 						}}
 						clasa={
-							"absolute flex  bg-fundalTrandafiri justify-between px-80 items-center py-2 mt-14 top-0 left-0 right-0 px-4  w-full  z-30 py-6"
+							"absolute flex  bg-fundalTrandafiri justify-between px-80 items-center py-2 mt-14 top-0 left-0 right-0 px-4  w-full h-96  z-30 py-6"
 						}>
 						<ul className="flex flex-col w-44 gap-4 mb-6 border p-2 px-6">
 							<h1>Harta</h1>
